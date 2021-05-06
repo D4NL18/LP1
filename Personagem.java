@@ -1,3 +1,5 @@
+package racobafoda.lp1;
+
 
 public abstract class Personagem {
 	private String nome;
@@ -7,11 +9,11 @@ public abstract class Personagem {
 	private int range;
 	private int posicao[][];
 	
-	public abstract void atacar();
+	public abstract void atacar(Personagem pAtacado);
 	
 	public abstract void movimentar();
 	
-	public abstract void ataqEsp();
+	public abstract void ataqEsp(Personagem pAtacado);
 	
 	
 	public String getNome() {
@@ -50,4 +52,11 @@ public abstract class Personagem {
 	public void setPosicao(int posicao[][]) {
 		this.posicao = posicao;
 	}
+        
+        
+        public Personagem(String nome){
+        this.nome = nome;
+    }
+        
+        
 }
