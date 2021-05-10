@@ -2,18 +2,23 @@ package racobafoda.lp1;
 
 
 public abstract class Personagem {
+
+    
 	private String nome;
+        public String visual;
 	private int vida;
 	private int defesa;
 	private int item;
 	private int range;
-	private int posicao[][];
+	
 	
 	public abstract void atacar(Personagem pAtacado);
+        
+        public abstract void ataqEsp(Personagem pAtacado);
 	
-	public abstract void movimentar();
 	
-	public abstract void ataqEsp(Personagem pAtacado);
+	
+	
 	
 	
 	public String getNome() {
@@ -46,13 +51,16 @@ public abstract class Personagem {
 	public void setRange(int range) {
 		this.range = range;
 	}
-	public int[][] getPosicao() {
-		return posicao;
-	}
-	public void setPosicao(int posicao[][]) {
-		this.posicao = posicao;
-	}
+	
         
+    
+        public String getVisual() {
+            return visual;
+        }
+        public void setVisual(String visual) {
+            this.visual = visual;
+        }
+
         
         public Personagem(String nome){
         this.nome = nome;
