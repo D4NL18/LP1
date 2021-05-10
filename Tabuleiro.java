@@ -1,38 +1,52 @@
+package racobafoda.lp1;
+
 
 public class Tabuleiro {
-	private Personagem peca;
-	public char visual;
-	
-	public void inserir(Personagem personagem, int x, int y, Tabuleiro[][] tabuleiro) {
-		tabuleiro[x][y].setPeca(personagem);
-	}
 
-	public void preencher(int tam, Tabuleiro[][] tabuleiro) {
-			for(int i = 0; i<tam; i++) {
-				for(int j = 0; j<tam; j++) {
-					tabuleiro[i][j].visual = '.';
-				}
-			}
-		
+    
+        public Tabuleiro(int tam){
+            this.tam = tam;
+        }
+        private int tam=10;
+        private Personagem[][] tabu = new Personagem[tam][tam];
+       
+        
+	public void inserir(Personagem personagem, int x, int y) {
+		tabu[x][y] = personagem;
+                tabu[x][y].visual = personagem.visual;
 	}
+        
+        public void remover(int x, int y){
+            if(tabu[x][y]!=null){
+                tabu[x][y]=null;
+            }
+        }
+
 	
-	public void imprimir(int tam, Tabuleiro[][] tabuleiro) {
-		for(int i = 0; i<tam; i++) {
-			for(int j = 0; j<tam; j++) {
-				System.out.println(tabuleiro[i][j].visual);
+	public void imprimir() {
+		for(int i = 0; i<tabu.length; i++) {
+			for(int j = 0; j<tabu.length; j++) {
+				if(tabu[i][j]==null){//by dev pedrao
+                                    System.out.print('.');
+                                }else{
+                                    System.out.print(tabu[i][j].getVisual());
+                                }
 			}
+                        System.out.println();
 		}
-		
-	}
-	
-
-	public Personagem getPeca() {
-		return peca;
 	}
 
-	public void setPeca(Personagem peca) {
-		this.peca = peca;
-	}
 
+       
+        
+        public int getTam() {
+        return tam;
+        }
+        public void setTam(int tam) {
+            this.tam = tam;
+        }
+    
+        
+         
 	
 }

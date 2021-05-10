@@ -1,4 +1,4 @@
-
+package racobafoda.lp1;
 public class Tank extends Personagem{
 	
 	private boolean espTank = false;
@@ -7,6 +7,7 @@ public class Tank extends Personagem{
         super(nome);
         this.setVida(150);
         this.setRange(3);
+        this.setVisual('T');
     }
     @Override
     public void atacar(Personagem pAtacado){
@@ -19,10 +20,7 @@ public class Tank extends Personagem{
     	System.out.println(this.getNome()+"impedindo o inimigo "+pAtacado.getNome()+"de atacar durante 1 rodada");
     	setEsp(true);
     }
-    @Override
-    public void movimentar(){
-        
-    }
+    
 	public boolean getEsp() {
 		return espTank;
 	}

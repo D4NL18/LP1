@@ -14,6 +14,7 @@ public class Magos extends PersonagemComMana{
         this.setVida(150);
         this.setRange(3);
         this.setMana(2);
+        this.setVisual('M');
     }
     @Override
     public void atacar(Personagem pAtacado){
@@ -30,10 +31,7 @@ public class Magos extends PersonagemComMana{
             this.setMana(0);
         }
     }
-    @Override
-    public void movimentar(){
-        
-    }
+    
     
     
     

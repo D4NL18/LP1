@@ -1,3 +1,4 @@
+package racobafoda.lp1;
 public class Warrior extends Personagem{
 
 	private boolean espWarrior = false;
@@ -7,6 +8,7 @@ public class Warrior extends Personagem{
 		super(nome);
 		this.setVida(75);
 		this.setRange(2);
+                this.setVisual('G');
 	}
 
 	@Override
@@ -27,10 +29,8 @@ public class Warrior extends Personagem{
 		this.setRange(4);
 	}
 
-	@Override
-	public void movimentar(){
-		
-	}
+	
+	
 
 	public boolean getEspWarrior(){
 		return this.espWarrior;
@@ -40,7 +40,7 @@ public class Warrior extends Personagem{
 		this.espWarrior = value;
 	}
 
-	public boolean getAd(){
+	public int getAd(){
 		return this.ad;
 	}
 
