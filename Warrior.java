@@ -8,7 +8,7 @@ public class Warrior extends Personagem{
 		super(nome);
 		this.setVida(75);
 		this.setRange(2);
-                this.setVisual("G1");
+                this.setVisual('G');
 	}
 
 	@Override

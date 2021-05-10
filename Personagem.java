@@ -5,7 +5,7 @@ public abstract class Personagem {
 
     
 	private String nome;
-        public String visual;
+        char visual;
 	private int vida;
 	private int defesa;
 	private int item;
@@ -54,10 +54,10 @@ public abstract class Personagem {
 	
         
     
-        public String getVisual() {
+        public char getVisual() {
             return visual;
         }
-        public void setVisual(String visual) {
+        public void setVisual(char visual) {
             this.visual = visual;
         }
 

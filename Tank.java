@@ -7,7 +7,7 @@ public class Tank extends Personagem{
         super(nome);
         this.setVida(150);
         this.setRange(3);
-        this.setVisual("T1");
+        this.setVisual('T');
     }
     @Override
     public void atacar(Personagem pAtacado){
