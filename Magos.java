@@ -20,9 +20,9 @@ public class Magos extends PersonagemComMana{
     }
     @Override
     public void atacar(Personagem pAtacado){
-        if(this.getNome()=="Dr. Estranho")System.out.println(this.getNome()+" atacou  inimigo: "+pAtacado.getNome()+"com sua magia");
-        else if(this.getNome()=="Toge Inumaki")System.out.println(this.getNome()+" atacou  inimigo: "+pAtacado.getNome()+"com sua magia");
-        pAtacado.setVida(pAtacado.getVida() - 3);
+        if(this.getNome()=="Dr. Estranho")System.out.println(this.getNome()+" atacou  inimigo: "+pAtacado.getNome()+" com sua magia");
+        else if(this.getNome()=="Toge Inumaki")System.out.println(this.getNome()+" atacou  inimigo: "+pAtacado.getNome()+" com sua magia");
+        pAtacado.setVida(pAtacado.getVida() - 3 + pAtacado.getDefesa());
         this.setMana(getMana()+1);
     }
     @Override
