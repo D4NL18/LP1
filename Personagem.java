@@ -15,11 +15,7 @@ public abstract class Personagem {
 	public abstract void atacar(Personagem pAtacado);
         
         public abstract void ataqEsp(Personagem pAtacado);
-	
-	
-	
-	
-	
+
 	
 	public String getNome() {
 		return nome;
