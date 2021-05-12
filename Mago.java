@@ -1,14 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package racobafoda.lp1;
-public class Tank extends Personagem{
-	
-	private boolean espTank = false;
+
+
+public class Mago extends PersonagemComMana{
     
-    public Tank(String nome) {
+    private int manaM;
+    
+    public Mago(String nome) {
         super(nome);
         this.setVida(1);
-        this.setRange(1);
-        if(this.getNome()=="A")this.setVisual("T1");
-        else if(this.getNome()=="B")this.setVisual("T2");
+        this.setRange(3);
+        this.setMana(1);
+        if(this.getNome()=="Dr. Estranho")this.setVisual("M1");
+        else if(this.getNome()=="Toge Inumaki")this.setVisual("M2");
+        
     }
     @Override
     public void atacar(Tabuleiro tabu, Personagem pAtacado,int x, int y){
@@ -21,12 +30,12 @@ public class Tank extends Personagem{
             System.out.println(this.getNome()+" causou dano suficiente para eliminar o inimigo!");
             tabu.remover(tabu, x, y);
         }
-        
+        this.setMana(getMana()+1);
     }
     @Override
     public void ataqEsp(Tabuleiro tabu, Personagem pAtacado,int x, int y){
-        
-        
+        manaM = getMana();
+        if(manaM == 2){
             if(this.getNome()=="Dr. Estranho")System.out.println(this.getNome()+" usou sua jóia do tempo para paralisar e atacar o inimigo: "+pAtacado.getNome());
             else if(this.getNome()=="Toge Inumaki")System.out.println(this.getNome()+" recitou sua palavra proibida e inflingou grandes danos em: "+pAtacado.getNome());
             pAtacado.setVida(pAtacado.getVida() - 6);
@@ -35,8 +44,10 @@ public class Tank extends Personagem{
             System.out.println(this.getNome()+" causou dano suficiente para eliminar o inimigo!");
             tabu.remover(tabu, x, y);
         }
-           
+            this.setMana(0);
         }
+    }
+    
     
     
     

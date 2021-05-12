@@ -12,14 +12,10 @@ public abstract class Personagem {
 	private int range;
 	
 	
-	public abstract void atacar(Personagem pAtacado);
+	public abstract void atacar(Tabuleiro tabu,Personagem pAtacado,int x,int y);
         
-        public abstract void ataqEsp(Personagem pAtacado);
-	
-	
-	
-	
-	
+        public abstract void ataqEsp(Tabuleiro tabu, Personagem pAtacado,int x, int y);
+
 	
 	public String getNome() {
 		return nome;
