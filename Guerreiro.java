@@ -1,10 +1,10 @@
 package racobafoda.lp1;
-public class Warrior extends Personagem{
+public class Guerreiro extends Personagem{
 
 	private boolean espWarrior = false;
 	private int ad = 6;
 
-	public Warrior(String nome){
+	public Guerreiro(String nome){
 		super(nome);
 		this.setVida(75);
 		this.setRange(2);
