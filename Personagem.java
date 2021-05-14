@@ -5,21 +5,19 @@ public abstract class Personagem {
 
     
 	private String nome;
-        public String visual;
+        private String visual;
 	private int vida;
 	private int defesa;
-	private int item;
+        private int dano;
+	private boolean item;
 	private int range;
-	
-	
-	public abstract void atacar(Personagem pAtacado);
         
-        public abstract void ataqEsp(Personagem pAtacado);
 	
 	
-	
-	
-	
+	public abstract void atacar(Tabuleiro tabu,Personagem pAtacado,int x,int y);
+        
+        public abstract void ataqEsp(Tabuleiro tabu, Personagem pAtacado,int x, int y);
+
 	
 	public String getNome() {
 		return nome;
@@ -39,10 +37,10 @@ public abstract class Personagem {
 	public void setDefesa(int defesa) {
 		this.defesa = defesa;
 	}
-	public int getItem() {
+	public boolean getItem() {
 		return item;
 	}
-	public void setItem(int item) {
+	public void setItem(boolean item) {
 		this.item = item;
 	}
 	public int getRange() {
@@ -51,7 +49,12 @@ public abstract class Personagem {
 	public void setRange(int range) {
 		this.range = range;
 	}
-	
+	 public int getDano() {
+        return dano;
+        }
+        public void setDano(int dano) {
+            this.dano = dano;
+        }
         
     
         public String getVisual() {
@@ -65,6 +68,9 @@ public abstract class Personagem {
         public Personagem(String nome){
         this.nome = nome;
     }
+
+    
+   
         
         
 }
