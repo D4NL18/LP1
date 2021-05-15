@@ -30,7 +30,7 @@ public class Mago extends PersonagemComMana{
             else if(this.getNome()=="Toge Inumaki")System.out.println(this.getNome()+" atacou  inimigo: "+pAtacado.getNome()+" com sua palavra amaldiçoada de nivel 1");
             System.out.println("+1 de Mana");
             pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa())/100));
-            if(pAtacado.getVida()>0)System.out.println("Foi causado "+ this.getDano() +" de dano ao inimigo "+pAtacado.getNome()+" restando "+pAtacado.getVida()+" de vida");
+            if(pAtacado.getVida()>0)System.out.println("Foi causado "+ (this.getDano() * (100 - pAtacado.getDefesa())/100) +" de dano ao inimigo "+pAtacado.getNome()+" restando "+pAtacado.getVida()+" de vida");
             else{
                 System.out.println(this.getNome()+" causou dano suficiente para eliminar o inimigo!");
                 tabu.remover(tabu, x, y);
@@ -41,7 +41,7 @@ public class Mago extends PersonagemComMana{
             else if(this.getNome()=="Toge Inumaki")System.out.println(this.getNome()+" atacou  inimigo: "+pAtacado.getNome()+" com sua palavra amaldiçoada de nivel 2");
             System.out.println("+1 de Mana");
             pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa())/100));
-            if(pAtacado.getVida()>0)System.out.println("Foi causado " +this.getDano()+ "de dano ao inimigo "+pAtacado.getNome()+" restando "+pAtacado.getVida()+" de vida");
+            if(pAtacado.getVida()>0)System.out.println("Foi causado " +(this.getDano() * (100 - pAtacado.getDefesa())/100)+ "de dano ao inimigo "+pAtacado.getNome()+" restando "+pAtacado.getVida()+" de vida");
             else{
                 System.out.println(this.getNome()+" causou dano suficiente para eliminar o inimigo!");
                 tabu.remover(tabu, x, y);
@@ -60,7 +60,7 @@ public class Mago extends PersonagemComMana{
                 if(this.getNome()=="Dr. Estranho")System.out.println(this.getNome()+" usou sua jóia do tempo para paralisar e atacar o inimigo: "+pAtacado.getNome());
                 else if(this.getNome()=="Toge Inumaki")System.out.println(this.getNome()+" recitou sua palavra proibida e inflingou grandes danos em: "+pAtacado.getNome());
                 pAtacado.setVida(pAtacado.getVida() - (2*this.getDano() * (100 - pAtacado.getDefesa())/100));
-                if(pAtacado.getVida()>0)System.out.println("Foi causado "+this.getDano()+" de dano ao inimigo "+pAtacado.getNome()+" restando "+pAtacado.getVida()+" de vida");
+                if(pAtacado.getVida()>0)System.out.println("Foi causado "+(this.getDano() * (100 - pAtacado.getDefesa())/100)+" de dano ao inimigo "+pAtacado.getNome()+" restando "+pAtacado.getVida()+" de vida");
                 else{
                 System.out.println(this.getNome()+" causou dano suficiente para eliminar o inimigo!");
                 tabu.remover(tabu, x, y);
@@ -73,7 +73,7 @@ public class Mago extends PersonagemComMana{
                 if(this.getNome()=="Dr. Estranho")System.out.println(this.getNome()+" usou sua jóia do tempo amplificada pela orbe para viajar para o passado e atacar o inimigo: "+pAtacado.getNome()+" enquanto ainda era jovem");
                 else if(this.getNome()=="Toge Inumaki")System.out.println(this.getNome()+" recitou sua palavra proibida mais poderosa e inflingou grandes danos nos órgãos do oponente "+pAtacado.getNome());
                 pAtacado.setVida(pAtacado.getVida() - (2*this.getDano() * (100 - pAtacado.getDefesa())/100));
-                if(pAtacado.getVida()>0)System.out.println("Foi causado "+this.getDano()+" de dano ao inimigo "+pAtacado.getNome()+" restando "+pAtacado.getVida()+" de vida");
+                if(pAtacado.getVida()>0)System.out.println("Foi causado "+(this.getDano() * (100 - pAtacado.getDefesa())/100)+" de dano ao inimigo "+pAtacado.getNome()+" restando "+pAtacado.getVida()+" de vida");
                 else{
                 System.out.println(this.getNome()+" causou dano suficiente para eliminar o inimigo!");
                 tabu.remover(tabu, x, y);

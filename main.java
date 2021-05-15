@@ -50,7 +50,7 @@ public class main {
            if(((Mago) per).getMana()==2)return true;
            return false;
         }
-         return false;
+         return true;
     }
     
     public static boolean checarFimJogo(Tabuleiro tabu){
@@ -116,8 +116,8 @@ public class main {
                 Mago m1 = new Mago("Dr. Estranho");
                 Mago m2 = new Mago("Toge Inumaki");
                 ItemMago orbe = new ItemMago();
-                Tank t1 = new Tank("A");
-                Tank t2 = new Tank("B");
+                Tank t1 = new Tank("Red Riot");
+                Tank t2 = new Tank("Bulat");
                 Personagem[] listaPer = new Personagem[4];
                 listaPer[0]=m1;
                 listaPer[1]=m2;
@@ -241,6 +241,13 @@ public class main {
                 }else if(escolha==3){
                     tabu.movimentar(tabu,op, op2);
                     j1.trocaTurno(j1, j2);
+                }else if(escolha==4){
+                    if(j1.inventario[0]!=null){
+                    System.out.println("Selecione o item que você deseja equipar:");
+                    j1.mostraInventario();
+                    }else{
+                        System.out.println("Você não possui itens no inventário, selecione outra opção");
+                    }
                 }
                 tabu.imprimir(tabu);
 
@@ -294,7 +301,14 @@ public class main {
                         
                 }else if(escolha==3){
                     tabu.movimentar(tabu,op, op2);
-                    j1.trocaTurno(j1, j2);
+                    j2.trocaTurno(j1, j2);
+                }else if(escolha==4){
+                    if(j2.inventario[0]!=null){
+                    System.out.println("Selecione o item que você deseja equipar:");
+                    j2.mostraInventario();
+                    }else{
+                        System.out.println("Você não possui itens no inventário, selecione outra opção");
+                    }
                 }
                 tabu.imprimir(tabu);
 

@@ -1,4 +1,6 @@
 
+package racobafoda.lp1;
+
 public class ItemTank extends Item{
 	
     private int vida = 20;
@@ -17,6 +19,8 @@ public class ItemTank extends Item{
 		this.vida = vida;
 	}
 
-
+        public ItemTank(){
+            this.setNome("Armadura");
+        }
     
 }

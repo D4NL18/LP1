@@ -13,7 +13,5 @@ public abstract class Item {
         
         public abstract void equipar(Personagem per);
             
-        public Item(){
-        this.nome = "Orbe";
-    }
+        
 }

@@ -1,3 +1,4 @@
+package racobafoda.lp1;
 
 public class ItemSuporte extends Item{
 	
@@ -17,6 +18,8 @@ public class ItemSuporte extends Item{
 		this.dano = dano;
 	}
 
-
+        public ItemSuporte(){
+            this.setNome("Band-aid");
+        }
     
 }

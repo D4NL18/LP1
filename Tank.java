@@ -26,7 +26,7 @@ public class Tank extends Personagem{
     }
     @Override
     public void atacar(Tabuleiro tabu, Personagem pAtacado,int x, int y){
-        	
+        this.setDefesa(25);
     	if(this.getItem() && this.getNome() == "Red Riot") System.out.println(this.getNome() + " Bebeu a Trigger, tornando-se mais resistente");
     	else if(this.getItem() && this.getNome() == "Bulat") System.out.println(this.getNome() + " ativou a incursio, tornando-se mais resistente");
     	
@@ -44,12 +44,14 @@ public class Tank extends Personagem{
     public void ataqEsp(Tabuleiro tabu, Personagem pAtacado,int x, int y){
         	if(!espTank) {
 	        	this.setDefesa(100);
-	        	System.out.print((this.getItem()) ? (this.getNome() + " guardou seu item para a próxima rodada\n") : "");
+	        	System.out.print((this.getItem()) ? (this.getNome() + " guardou seu item para a prï¿½xima rodada\n") : "");
 	        	if(this.getNome() == "Red Riot")System.out.println(this.getNome() + " ativou seu enrijecimento, tornando-se imortal por 1 rodada");
 	        	else if(this.getNome() == "Bulat")System.out.println(this.getNome() + "INCURSIOOOOOOOOOOOOOOOOOO\n"
 	        	+ "Bulat transformou a sua incursio em uma armadura dourada, tornando-se imortal por 1 rodada");
 	        	espTank = true;
-        	}
+        	}else{
+                    System.out.println("RODOU FILHO");
+                }
         	
         }
     

@@ -12,7 +12,9 @@ package racobafoda.lp1;
 public class ItemMago extends Item{
     private int dano=10;
     
-    
+    public ItemMago(){
+        this.setNome("Orbe");
+    }
     
     
     @Override

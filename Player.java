@@ -5,20 +5,28 @@
  */
 package racobafoda.lp1;
 
-/**
- *
- * @author Bruno
- */
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 public class Player {
 
   
     
-    private Item[] inventário = new Item[10];
+    public Item[] inventario = new Item[10];
     private String nome;
     private int numero;
     private boolean turno;
     
-    
+    public void mostraInventario(){
+        for (int i=0;i<this.inventario.length;i++){
+            if(this.inventario[i]!=null){
+            System.out.println(this.inventario[i].getNome());
+            }
+        }
+    }
     
     public boolean validaPeca(Tabuleiro tabu,int x,int y){
        if(tabu.descobreTabu(tabu)[x][y]!=null){
@@ -27,10 +35,7 @@ public class Player {
        }
         return false;
     }
-        
-    
-    
-    
+          
     
     public void trocaTurno(Player j1, Player j2){
         if(j1.isTurno()){
@@ -68,25 +73,50 @@ public class Player {
     }
     
     public void guardaItem(Item item){
-        for(int i=0;i<this.inventário.length;i++){
-            if(this.inventário[i]==null){
-                this.inventário[i]=item;
+        for(int i=0;i<this.inventario.length;i++){
+            if(this.inventario[i]==null){
+                this.inventario[i]=item;
                 break;
             }
-        }
-    }
-    
-    public Item buscaItem(Item item){
-         for(int i=0;i<this.inventário.length;i++){
-            if(this.inventário[i]==item)return item;
             
         }
-         
-        System.out.println("O item procurado não se encontra no seu inventário"); 
-        return null;   
-              
     }
     
+    public void apagaItem(Item item){
+        this.inventario[buscaItem(item)]=null;
+    }
     
+    public int buscaItem(Item item){
+         for(int i=0;i<this.inventario.length;i++){
+            if(this.inventario[i]==item)return i;
+        }
+        System.out.println("O item procurado não se encontra no seu inventário"); 
+        return -1;   
+              
+    }
+    public void inicioArquivo()throws IOException{
+        Scanner in = new Scanner(new FileReader("arq.txt"));
+        for(int i=0; in.hasNextLine();i++) {
+            if(in.nextLine()=="Orbe"){
+                this.inventario[i]= new ItemMago();
+            }else if(in.nextLine()=="Band-aid"){
+                this.inventario[i] = new ItemSuporte();
+            }else if(in.nextLine()=="Armadura"){
+                this.inventario[i] = new ItemTank();
+            }else if(in.nextLine()=="Poção de cura"){
+                this.inventario[i] = new ItemGenerico();
+            }     
+        }
+        in.close();
+     }      
+            
+            
+    public void fimArquivo() throws IOException{
+        BufferedWriter w1 = new BufferedWriter(new FileWriter(this.getNome()+".txt"));
+        for(int i=0; i<this.inventario.length; i++) {
+            w1.append(this.inventario[i].getNome()+"\n");
+        }
+        w1.close();
+    }
     
 }

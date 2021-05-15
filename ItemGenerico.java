@@ -7,7 +7,9 @@ package racobafoda.lp1;
 
 
 public class ItemGenerico extends Item{
-    
+    public ItemGenerico(){
+        this.setNome("Poção de cura");
+    }
     
     @Override
     public void equipar(Personagem per){
