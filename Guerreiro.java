@@ -1,50 +1,80 @@
 package racobafoda.lp1;
-public class Guerreiro extends Personagem{
 
-	private boolean espWarrior = false;
-	private int ad = 6;
+import java.util.ArrayList;
 
-	public Guerreiro(String nome){
+public class Guerreiro extends Personagem {
+
+	private int cooldown = 2;
+
+	public Guerreiro(String nome) {
 		super(nome);
-		this.setVida(75);
-		this.setRange(2);
-                this.setVisual("G1");
-	}
-
-	@Override
-	public void atacar(Personagem pAtacado){
-		if(!getEspWarrior()){
-			System.out.println(this.getNome()+"Atacando o inimigo: "+pAtacado.getNome());
-			pAtacado.setVida(pAtacado.getVida() - this.getAd());
-		} else{
-			// por para o ataque afetar a área ao redor.
+		this.setVida(120);
+		this.setDefesa(20);
+		this.setRange(1);
+		this.setDano(20);
+		this.setItem(false);
+		if (this.getNome().equals("Zoro")) {
+			this.setVisual("G1");
+		} else {
+			this.setVisual("G2");
 		}
 	}
-	
+
 	@Override
-	public void ataqEsp(Personagem pAtacado){
-		System.out.println(this.getNome()+" entrou em modo Berserk, ganhando dano de ataque e dano em área.");
-		this.setEspWarrior(true);
-		this.setAd(this.getAd() + 4);
-		this.setRange(4);
+	public void atacar(Tabuleiro tabu, Personagem pAtacado, int x, int y) {
+		if (tabu.descobreTabu(tabu)[x][y] != null) {
+			if (this.getNome().equals("Zoro")) {
+				System.out.println(this.getNome() + " cortou o seu inimigo " + pAtacado.getNome() + " com a Shusui");
+			} else {
+				System.out.println(
+						this.getNome() + " cortou o seu inimigo " + pAtacado.getNome() + " com o Machado Leviatã");
+			}
+			pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa()) / 100));
+
+			if (pAtacado.getVida() > 0) {
+				System.out.println("Foi causado " + this.getDano() + " de dano ao inimigo " + pAtacado.getNome()
+						+ " restando " + pAtacado.getVida() + " de vida");
+			} else {
+				System.out.println(this.getNome() + " causou dano suficiente para eliminar o inimigo!");
+				tabu.remover(tabu, x, y);
+			}
+
+			if (this.getItem()) {
+				this.setItem(false);
+				this.setDano(this.getDano() - 5);
+			}
+		}
 	}
 
-	
-	
+	@Override
+	public void ataqEsp(Tabuleiro tabu, Personagem pAtacado, int x, int y) {
+		int xPos[] = { x - 1, x - 1, x - 1, x, x, x + 1, x + 1, x + 1 };
+		int yPos[] = { y - 1, y, y + 1, y - 1, y + 1, y - 1, y, y + 1 };
 
-	public boolean getEspWarrior(){
-		return this.espWarrior;
-	}
+		if (this.getNome().equals("Zoro")) {
+			System.out.println(this.getNome() + " usou o golpe Kokujo O Tatsumaki!");
+		} else {
+			System.out.println(this.getNome() + " usou a Fúria Espartana!");
+		}
 
-	public void setEspWarrior(boolean value){
-		this.espWarrior = value;
-	}
+		for (int i = 0; i < 8; i++) {
+			Personagem persoAtacked = tabu.descobreTabu(tabu)[xPos[i]][yPos[i]];
+			if (persoAtacked != null) {
+				persoAtacked
+						.setVida(persoAtacked.getVida() - (this.getDano() * (100 - persoAtacked.getDefesa()) / 100));
 
-	public int getAd(){
-		return this.ad;
-	}
+				if (persoAtacked.getVida() > 0) {
+					System.out.println("Foi causado " + this.getDano() + " de dano ao inimigo " + persoAtacked.getNome() + " restando " + persoAtacked.getVida() + " de vida");
+				} else {
+					System.out.println(this.getNome() + " causou dano suficiente para eliminar o inimigo!");
+					tabu.remover(tabu, xPos[i], yPos[i]);
+				}
+			}
+		}
 
-	public void setAd(int value){
-		this.ad = value;
+		if (this.getItem()) {
+			this.setItem(false);
+			this.setDano(this.getDano() - 5);
+		}
 	}
 }
