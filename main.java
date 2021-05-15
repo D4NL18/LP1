@@ -230,7 +230,11 @@ public class main {
                     y=ler.nextInt();
                     
                         if(validaAtaq(tabu,op,op2,x,y) && tabu.descobreTabu(tabu)[x][y]!=null){
-                            tabu.descobreTabu(tabu)[op][op2].ataqEsp(tabu,tabu.descobreTabu(tabu)[x][y],x,y);
+                            if(tabu.descobreTabu(tabu)[op][op2] instanceof Guerreiro){
+                                tabu.descobreTabu(tabu)[op][op2].ataqEsp(tabu,tabu.descobreTabu(tabu)[x][y],op,op2);
+                            } else{
+                                tabu.descobreTabu(tabu)[op][op2].ataqEsp(tabu,tabu.descobreTabu(tabu)[x][y],x,y);
+                            }
                             j1.trocaTurno(j1, j2);
                         }else{
                             System.out.println("Não é possível atacar essa peça, tente novamente");
