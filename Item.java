@@ -1,5 +1,6 @@
+package racobafoda.lp1;
 
-public class Item {
+public abstract class Item {
 	private String nome;
 
 	public String getNome() {
@@ -9,4 +10,8 @@ public class Item {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+        
+        public abstract void equipar(Personagem per);
+            
+        
 }
