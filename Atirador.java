@@ -40,24 +40,27 @@ public class Atirador extends Personagem {
             }
             
         }
-    }
+    
         
     @Override
-    public void ataqEsp(Tabuleiro tabu, Personagem pAtacado,int x, int y){
-        if(!espAtirador) {
-           
+    public void ataqAtirador(Tabuleiro tabu, Personagem pAtacado,int x, int y){
 	    this.setRange(4);
 	    if(this.getNome() == "Legolas"){
                 System.out.println(this.getNome() + " concentrou-se e com sua visão élfica pode enxergar além das barreiras humanas e ataca "+pAtacado.getNome());
+                pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa())/100));
+                this.setRange(3);
             }
             
-	    else if(this.getNome() == "Cj")System.out.println("Você quer um buraco na sua cabeça, otário! "+this.getNome()+" atira em "+pAtacado.getNome());
-	    espAtirador = true;
-        }else{
-            System.out.println("RODOU FILHO");
-        }
+	    else if(this.getNome() == "Cj"){
+                System.out.println("Você quer um buraco na sua cabeça, otário! "+this.getNome()+" atira em "+pAtacado.getNome());
+                pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa())/100));
+                this.setRange(3);
+            }
+	    
+
         	
     }
         
     }
+}
 
