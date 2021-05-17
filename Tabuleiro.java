@@ -18,7 +18,7 @@ public class Tabuleiro {
         public Personagem[][] tabu3 = new Personagem[15][15];
        
        
-	public int inserir(Tabuleiro t,Personagem personagem, int x, int y) {
+	public int inserir(Tabuleiro t,Personagem personagem, int x, int y) {//Insere um personagem no campo
             
             if(t.descobreTabu(t)[x][y]==null){
                     t.descobreTabu(t)[x][y] = personagem;
@@ -39,7 +39,7 @@ public class Tabuleiro {
             
         }
 	
-	public void imprimir(Tabuleiro t) {
+	public void imprimir(Tabuleiro t) {//Imprime se algo for diferente de nulo, caso seja igual a nulo imprime um "."
             
             for(int i = 0; i<t.descobreTabu(t).length; i++) {
 			for(int j = 0; j<t.descobreTabu(t).length; j++) {
@@ -88,7 +88,7 @@ public class Tabuleiro {
         }
         
         
-       public Personagem[][] descobreTabu(Tabuleiro tabu){
+       public Personagem[][] descobreTabu(Tabuleiro tabu){//REtorna o tipo de tabuleiro que esta sendo usado
        int w=tabu.getOp();
        
        if(w==1)return tabu.tabu;

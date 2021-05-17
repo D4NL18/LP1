@@ -40,10 +40,11 @@ public class Atirador extends Personagem {
             }
             
         }
+    }
     
         
     @Override
-    public void ataqAtirador(Tabuleiro tabu, Personagem pAtacado,int x, int y){
+    public void ataqEsp(Tabuleiro tabu, Personagem pAtacado,int x, int y){
 	    this.setRange(4);
 	    if(this.getNome() == "Legolas"){
                 System.out.println(this.getNome() + " concentrou-se e com sua visão élfica pode enxergar além das barreiras humanas e ataca "+pAtacado.getNome());
@@ -61,6 +62,5 @@ public class Atirador extends Personagem {
         	
     }
         
-    }
 }
 

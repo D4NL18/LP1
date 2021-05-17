@@ -25,7 +25,7 @@ public class Player {
     private boolean turno;
     
     
-    public static Item sorteiaItem(){
+    public static Item sorteiaItem(){//Atribui um item para cada valor e retorna o item sorteado
         Random random = new Random();
         int rand = random.nextInt(10);
         
@@ -69,7 +69,7 @@ public class Player {
         }
     }
     
-    public boolean validaPeca(Tabuleiro tabu,int x,int y){
+    public boolean validaPeca(Tabuleiro tabu,int x,int y){//valida se a peca eh sua baseado na substring do visual da propria peca
        if(tabu.descobreTabu(tabu)[x][y]!=null){
         int n = Integer.parseInt(tabu.descobreTabu(tabu)[x][y].getVisual().substring(1));
         if(n==numero)return true;
@@ -113,7 +113,7 @@ public class Player {
         this.numero = numero;
     }
     
-    public void guardaItem(Item item){
+    public void guardaItem(Item item){//armazena o item no inventario do player
         for(int i=0;i<this.inventario.length;i++){
             if(this.inventario[i]==null){
                 this.inventario[i]=item;
@@ -127,7 +127,7 @@ public class Player {
         this.inventario[buscaItem(item)]=null;
     }
     
-    public int buscaItem(Item item){
+    public int buscaItem(Item item){//Busca item no inventario do player
          for(int i=0;i<this.inventario.length;i++){
             if(this.inventario[i]==item)return i;
         }
@@ -135,12 +135,11 @@ public class Player {
         return -1;   
               
     }
-    public void inicioArquivo()throws IOException{
+    
+    public void inicioArquivo()throws IOException{//Busca um arquivo com o nome do player, caso ja exista, transfere os itens do arquivo para o inventario
         String linha;
         String nomeArq = this.getNome()+".txt";
         boolean exists = (new File(nomeArq)).exists();
-        System.out.println(nomeArq);
-        System.out.println(exists);
         if(exists){
         Scanner in = new Scanner(new FileReader(nomeArq));
         if(in.hasNextLine()){
@@ -169,7 +168,7 @@ public class Player {
      }      
             
             
-    public void fimArquivo() throws IOException{
+    public void fimArquivo() throws IOException{//Guarda os itens do inventario em um arquivo com o nome do player
         BufferedWriter w1 = new BufferedWriter(new FileWriter(this.getNome()+".txt"));
         for(int i=0; i<this.inventario.length; i++) {
             if(this.inventario[i]!=null){
