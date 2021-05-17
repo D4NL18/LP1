@@ -52,11 +52,15 @@ public class main {
         }
     }
     
-    public static boolean validaEsp(Personagem per){//Validação dos pre requisitos do ataque especial de algumas classes
+    public static boolean validaEsp(Personagem per){//Validacao dos pre requisitos do ataque especial de algumas classes
         if(per instanceof Mago){
            if(((Mago) per).getMana()==2)return true;
            return false;
         }
+        if(per instanceof Suporte){
+            if(((Suporte) per).getMana()==2)return true;
+            return false;
+         }
          if(per instanceof Atirador){
              if(((Atirador) per).getRange()==3){
                  per.setRange(4);
