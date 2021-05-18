@@ -64,7 +64,7 @@ public class Player {
     public void mostraInventario(){
         for (int i=0;i<this.inventario.length;i++){
             if(this.inventario[i]!=null){
-            System.out.println(i+"- "+this.inventario[i].getNome());
+            System.out.println(i+"- "+this.inventario[i].getNome()+"("+this.inventario[i].getClass().getSimpleName()+")");
             }
         }
     }
