@@ -20,7 +20,18 @@ public abstract class Personagem {
         
         public abstract void ataqEsp(Tabuleiro tabu, Personagem pAtacado,int x, int y);
 
-	
+	public void mostraInfo(){
+            System.out.println("|Nome: "+this.getNome()+"("+this.getVisual()+")");
+            System.out.println("|Vida: "+this.getVida());
+            System.out.println("|Ataque: "+this.getDano());
+            System.out.println("|Defesa: "+this.getDefesa());
+            if(this.getItem()){
+                System.out.println("|Item Equipado: Sim\n");
+            }else{
+                System.out.println("|Item Equipado: Não\n");
+            }
+            
+        }
         
 	public String getNome() {
 		return nome;

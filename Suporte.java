@@ -10,7 +10,7 @@ public class Suporte extends PersonagemComMana{
         
     public Suporte(String nome) {
         super(nome);
-        this.setVida(80);
+        this.setVida(1);
         this.setDefesa(10);
         this.setRange(2);
         this.setMana(1);
@@ -28,7 +28,7 @@ public class Suporte extends PersonagemComMana{
             System.out.println("Foi dado "+ this.getDano() +" de vida ao personagem "+pCurado.getNome()+" ,restando "+pCurado.getVida()+" de vida");
             this.setMana(getMana()+1);
             System.out.println("+1 de Mana");
-            System.out.println(this.getNome() + " agora possui" + this.getMana() + " de mana");
+            System.out.println(this.getNome() + " agora possui " + this.getMana() + " de mana");
             
             if(this.getItem()) {
             this.setItem(false);
@@ -38,7 +38,7 @@ public class Suporte extends PersonagemComMana{
     @Override
     public void ataqEsp(Tabuleiro tabu, Personagem pCurado,int x, int y){    
         if (this.getMana() == 2) {
-	        System.out.println(this.getNome()+" curou o personagem com seu especial, deixando-o com vida máxima novamente!: "+pCurado.getNome() + ((this.getItem()) ? " \n" + this.getNome() + "guardou seu boost para a próxima rodada" : ""));
+	        System.out.println(this.getNome()+" curou o personagem com seu especial, deixando-o com vida maxima novamente! Personagem curado: "+pCurado.getNome() + ((this.getItem()) ? " \n" + this.getNome() + "guardou seu boost para a proxima rodada" : ""));
 	        pCurado.setVida(pCurado.getVida() + this.getDano());
 	        System.out.println(pCurado.getNome() + " agora possui " + this.getVida() + " de vida");
 	        this.setMana(0);

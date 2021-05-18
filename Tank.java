@@ -6,7 +6,7 @@ public class Tank extends Personagem{
 	
     public Tank(String nome) {
         super(nome);
-        this.setVida(150);
+        this.setVida(1);
         this.setDefesa(25);
         this.setRange(1);
         this.setDano(10);
@@ -35,12 +35,12 @@ public class Tank extends Personagem{
         	if(!espTank) {
 	        	this.setDefesa(100);
 	        	System.out.print((this.getItem()) ? (this.getNome() + " guardou seu item para a proxima rodada\n") : "");
-	        	if(this.getNome() == "Red Riot")System.out.println(this.getNome() + " ativou seu enrijecimento, tornando-se imortal até realizar um ataque");
-	        	else if(this.getNome() == "Bulat")System.out.println(this.getNome() + "INCURSIOOOOOOOOOOOOOOOOOO\n"
-	        	+ "Bulat transformou a sua incursio em uma armadura dourada, tornando-se imortal até realizar um ataque");
+	        	if(this.getNome() == "Red Riot")System.out.println(this.getNome() + " ativou seu enrijecimento, tornando-se imortal ate realizar um ataque");
+	        	else if(this.getNome() == "Bulat")System.out.println(this.getNome() + ": INCURSIOOOOOOOOOOOOOOOOOO\n"
+	        	+ "Bulat transformou a sua incursio em uma armadura dourada, tornando-se imortal ate realizar um ataque");
 	        	espTank = true;
         	}else{
-                    System.out.println("Seu especial não pode ser ativado duas vezes na mesma partida");
+                    System.out.println("Seu especial nao pode ser ativado duas vezes na mesma partida");
                 }
         	
         }

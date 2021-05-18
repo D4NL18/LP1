@@ -21,7 +21,7 @@ public class Player {
     
     public Item[] inventario = new Item[10];
     private String nome;
-    private int numero;
+    private int numero; 
     private boolean turno;
     
     
@@ -64,7 +64,7 @@ public class Player {
     public void mostraInventario(){
         for (int i=0;i<this.inventario.length;i++){
             if(this.inventario[i]!=null){
-            System.out.println(i+"- "+this.inventario[i].getNome());
+            System.out.println(i+"- "+this.inventario[i].getNome()+"("+this.inventario[i].getClass().getSimpleName()+")");
             }
         }
     }
@@ -145,22 +145,24 @@ public class Player {
         if(in.hasNextLine()){
             for(int i=0; in.hasNextLine();i++) {
                linha=in.nextLine();
-            if(linha=="Orbe"){
+               
+            if(linha.length()==4){
                 this.inventario[i]= new ItemMago();
-            }else if(linha=="Band-aid"){
+            }else if(linha.length()==9){
                 this.inventario[i] = new ItemSuporte();
-            }else if(linha=="Armadura"){
+            }else if(linha.length()==8){
                 this.inventario[i] = new ItemTank();
-            }else if(linha=="Poção de cura"){
+            }else if(linha.length()==13){
                 this.inventario[i] = new ItemGenerico();
-            }else if(linha=="Manopla")     {
+            }else if(linha.length()==7)     {
                 this.inventario[i] = new ItemGuerreiro();
-            }else if(linha=="Lentes telescópicas"){
+            }else if(linha.length()==19){
                 this.inventario[i] = new itemAtirador();
             }
         }
         }
-        
+        System.out.println("O player "+this.getNome()+" ja possui um registro de inventario de outras batalhas. Ele sera transferido para essa batalha.");
+        mostraInventario();
         in.close();
         }else{
             System.out.println("O usuário "+this.getNome()+" não possui um inventário prévio.");

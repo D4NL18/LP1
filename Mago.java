@@ -58,9 +58,9 @@ public class Mago extends PersonagemComMana{
         if(!this.getItem()){
             manaM = getMana();
             if(manaM == 2){
-                if(this.getNome()=="Dr. Estranho")System.out.println(this.getNome()+" usou sua jóia do tempo para paralisar e atacar o inimigo: "+pAtacado.getNome());
+                if(this.getNome()=="Dr. Estranho")System.out.println(this.getNome()+" usou sua joia do tempo para paralisar e atacar o inimigo: "+pAtacado.getNome());
                 else if(this.getNome()=="Toge Inumaki")System.out.println(this.getNome()+" recitou sua palavra proibida e inflingou grandes danos em: "+pAtacado.getNome());
-                pAtacado.setVida(pAtacado.getVida() - (2*this.getDano() * (100 - pAtacado.getDefesa())/100));
+                pAtacado.setVida(pAtacado.getVida() - (2*this.getDano()));
                 if(pAtacado.getVida()>0)System.out.println("Foi causado "+(this.getDano() * (100 - pAtacado.getDefesa())/100)+" de dano ao inimigo "+pAtacado.getNome()+" restando "+pAtacado.getVida()+" de vida");
                 else{
                 System.out.println(this.getNome()+" causou dano suficiente para eliminar o inimigo!");
@@ -71,8 +71,8 @@ public class Mago extends PersonagemComMana{
         }else{
             manaM = getMana();
             if(manaM == 2){
-                if(this.getNome()=="Dr. Estranho")System.out.println(this.getNome()+" usou sua jóia do tempo amplificada pela orbe para viajar para o passado e atacar o inimigo: "+pAtacado.getNome()+" enquanto ainda era jovem");
-                else if(this.getNome()=="Toge Inumaki")System.out.println(this.getNome()+" recitou sua palavra proibida mais poderosa e inflingou grandes danos nos órgãos do oponente "+pAtacado.getNome());
+                if(this.getNome()=="Dr. Estranho")System.out.println(this.getNome()+" usou sua joia do tempo amplificada pela orbe para viajar para o passado e atacar o inimigo: "+pAtacado.getNome()+" enquanto ainda era jovem");
+                else if(this.getNome()=="Toge Inumaki")System.out.println(this.getNome()+" recitou sua palavra proibida mais poderosa e inflingou grandes danos nos orgaos do oponente "+pAtacado.getNome());
                 pAtacado.setVida(pAtacado.getVida() - (2*this.getDano() * (100 - pAtacado.getDefesa())/100));
                 if(pAtacado.getVida()>0)System.out.println("Foi causado "+(this.getDano() * (100 - pAtacado.getDefesa())/100)+" de dano ao inimigo "+pAtacado.getNome()+" restando "+pAtacado.getVida()+" de vida");
                 else{

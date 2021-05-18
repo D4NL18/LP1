@@ -3,11 +3,10 @@ package racobafoda.lp1;
 
 public class Atirador extends Personagem {
     
-    private boolean espAtirador = false;
     
     public Atirador(String nome) {
         super(nome);
-        this.setVida(100);
+        this.setVida(1);
         this.setDefesa(10);
         this.setRange(3);
         this.setDano(15);
@@ -23,11 +22,11 @@ public class Atirador extends Personagem {
         if(!this.getItem()){
             
             if(this.getNome()=="Legolas"){
-                System.out.println(this.getNome()+" retira da sua aljava uma flecha"
+                System.out.println(this.getNome()+" retira da sua aljava uma flecha "
                 + "e com seu arco atira-a, ferindo "+pAtacado.getNome()+".");
             }
             else if(this.getNome()=="Cj"){
-                System.out.println("Eu sou um maníaco com uma arma. "+this.getNome()+" atira em "+pAtacado.getNome());
+                System.out.println("Eu sou um maniaco com uma arma. "+this.getNome()+" atira em "+pAtacado.getNome());
             }
               
             pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa())/100));
@@ -47,13 +46,13 @@ public class Atirador extends Personagem {
     public void ataqEsp(Tabuleiro tabu, Personagem pAtacado,int x, int y){
 	    this.setRange(4);
 	    if(this.getNome() == "Legolas"){
-                System.out.println(this.getNome() + " concentrou-se e com sua visão élfica pode enxergar além das barreiras humanas e ataca "+pAtacado.getNome());
+                System.out.println(this.getNome() + " concentrou-se e com sua visao elfica pode enxergar alem das barreiras humanas e ataca "+pAtacado.getNome());
                 pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa())/100));
                 this.setRange(3);
             }
             
 	    else if(this.getNome() == "Cj"){
-                System.out.println("Você quer um buraco na sua cabeça, otário! "+this.getNome()+" atira em "+pAtacado.getNome());
+                System.out.println("Você quer um buraco na sua cabeça, otario! "+this.getNome()+" atira em "+pAtacado.getNome());
                 pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa())/100));
                 this.setRange(3);
             }

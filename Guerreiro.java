@@ -8,7 +8,7 @@ public class Guerreiro extends Personagem {
 
 	public Guerreiro(String nome) {
 		super(nome);
-		this.setVida(120);
+		this.setVida(1);
 		this.setDefesa(20);
 		this.setRange(1);
 		this.setDano(20);
@@ -27,7 +27,7 @@ public class Guerreiro extends Personagem {
 				System.out.println(this.getNome() + " cortou o seu inimigo " + pAtacado.getNome() + " com a Shusui");
 			} else {
 				System.out.println(
-						this.getNome() + " cortou o seu inimigo " + pAtacado.getNome() + " com o Machado Leviatã");
+						this.getNome() + " cortou o seu inimigo " + pAtacado.getNome() + " com o Machado Leviata");
 			}
 			pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa()) / 100));
 
@@ -48,18 +48,59 @@ public class Guerreiro extends Personagem {
 
 	@Override
 	public void ataqEsp(Tabuleiro tabu, Personagem pAtacado, int x, int y) {
-		int xPos[] = { x - 1, x - 1, x - 1, x, x, x + 1, x + 1, x + 1 };
-		int yPos[] = { y - 1, y, y + 1, y - 1, y + 1, y - 1, y, y + 1 };
-
+            int[] xPosReal = new int[8];
+            int[] yPosReal = new int[8];
+            
+                if(x<=0){
+                    int xPos[] = { x , x , x , x, x, x + 1, x + 1, x + 1 };
+                    for(int w=0;w<xPos.length;w++){
+                        xPosReal[w]=xPos[w];
+                        
+                    }
+                }else if(x>=tabu.descobreTabu(tabu).length-1){
+                    int xPos[] = { x - 1, x - 1, x - 1, x, x, x , x , x };
+                    for(int w=0;w<xPos.length;w++){
+                        xPosReal[w]=xPos[w];
+                    }
+                }else{
+                        int xPos[] = { x - 1, x - 1, x - 1, x, x, x + 1, x + 1, x + 1 }; 
+                        for(int w=0;w<xPos.length;w++){
+                        xPosReal[w]=xPos[w];
+ 
+                    }
+                }
+                    if(y<=0){
+                        
+                        int yPos[] = { y , y, y + 1, y , y + 1, y , y, y + 1 };
+                        for(int w=0;w<yPos.length;w++){
+                        yPosReal[w]=yPos[w];
+                    }
+                    }else if(y>=tabu.descobreTabu(tabu).length-1){
+                        int yPos[] = { y - 1, y, y , y - 1, y , y - 1, y, y  };
+                        for(int w=0;w<yPos.length;w++){
+                        yPosReal[w]=yPos[w];
+                    }
+                    }else{
+                        int yPos[] = { y - 1, y, y + 1, y - 1, y + 1, y - 1, y, y + 1 };
+                        for(int w=0;w<yPos.length;w++){
+                        yPosReal[w]=yPos[w];
+                    }
+                    
+                }
 		if (this.getNome().equals("Zoro")) {
 			System.out.println(this.getNome() + " usou o golpe Kokujo O Tatsumaki!");
 		} else {
-			System.out.println(this.getNome() + " usou a Fúria Espartana!");
+			System.out.println(this.getNome() + " usou a Furia Espartana!");
 		}
-
+                
 		for (int i = 0; i < 8; i++) {
-			Personagem persoAtacked = tabu.descobreTabu(tabu)[xPos[i]][yPos[i]];
-			if (persoAtacked != null) {
+			Personagem persoAtacked = tabu.descobreTabu(tabu)[xPosReal[i]][yPosReal[i]];
+                        
+                        int nProprio = Integer.parseInt(this.getVisual().substring(1));
+                        int nInimigo=nProprio;
+                        if(persoAtacked!=null && !(persoAtacked instanceof Obstaculo))nInimigo = Integer.parseInt(persoAtacked.getVisual().substring(1));
+                        
+			if (persoAtacked != null && nProprio != nInimigo) {
 				persoAtacked
 						.setVida(persoAtacked.getVida() - (this.getDano() * (100 - persoAtacked.getDefesa()) / 100));
 
@@ -67,7 +108,7 @@ public class Guerreiro extends Personagem {
 					System.out.println("Foi causado " + this.getDano() + " de dano ao inimigo " + persoAtacked.getNome() + " restando " + persoAtacked.getVida() + " de vida");
 				} else {
 					System.out.println(this.getNome() + " causou dano suficiente para eliminar o inimigo!");
-					tabu.remover(tabu, xPos[i], yPos[i]);
+					tabu.remover(tabu, xPosReal[i], yPosReal[i]);
 				}
 			}
 		}

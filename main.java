@@ -2,12 +2,26 @@ package racobafoda.lp1;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Random;
+
+
+
+
+/*MEMBROS:
+ALEC SANTOS
+BRUNO RACOBALDO
+DANIEL MARINHO
+MARINA CALHEIRA
+*/
+
 public class main {
     static int cont1=1;
     static int cont2=1;
+    static int MAXTURNOS = 15;
+    
     public static int menu(Personagem per){
         
-        System.out.println("Essa peca eh do tipo "+per.getClass().getSimpleName());
+        System.out.println("|Essa peca eh do tipo "+per.getClass().getSimpleName());
+        per.mostraInfo();
         Scanner es = new Scanner(System.in);
         
         if(per instanceof Mago){//se for um amigo tem menu especifico
@@ -97,6 +111,22 @@ public class main {
         }
     }
 
+    public static void desempatar(Tabuleiro tabu){//checa a quantidade de pecas que terminam com 1 ou 2 no campo, e soma um contador referente a cada peca.
+        
+        
+        for(int i=0;i<tabu.descobreTabu(tabu).length;i++){
+            for(int j=0;j<tabu.descobreTabu(tabu).length;j++){
+                if(tabu.descobreTabu(tabu)[i][j]!=null && !(tabu.descobreTabu(tabu)[i][j] instanceof Obstaculo)) {
+                    if(Integer.parseInt(tabu.descobreTabu(tabu)[i][j].getVisual().substring(1))==1) cont1++;
+                    else if(Integer.parseInt(tabu.descobreTabu(tabu)[i][j].getVisual().substring(1))==2) cont2++;
+                }
+            }
+        }
+        if(cont1>cont2)System.out.println("Jogador 1 ganhou a partida por possuir mais pecas em campo");
+        else if(cont2>cont1)System.out.println("Jogador 2 ganhou a partida por possuir mais pecas em campo");
+        else System.out.println("Ambos os jogadores possuem o mesmo numero de pecas, EMPATE");
+    }
+    
     public static void faseDePreenchimentoPedras(Tabuleiro tabu,int tipoTabu, Personagem pedra){
         tabu.inserir(tabu, pedra, 2, 2);
                     tabu.inserir(tabu, pedra, 2, 3);
@@ -130,31 +160,37 @@ public class main {
     }
    
     public static void equipaItemClasse(Player j1,Player j2, int escolha, Tabuleiro tabu, int op, int op2){
-        //Pega a classe do personagem selecionado e compara com a do item, se for igual ele equipa o item
+        //Pega a classe do personagem selecionado e compara com a do item, se for igual ele equipa o item e apaga do inventario
         
                     if(j1.inventario[escolha] instanceof ItemGuerreiro && tabu.descobreTabu(tabu)[op][op2] instanceof Guerreiro){
                              System.out.println("Item Equipado!");
                              j1.inventario[escolha].equipar(tabu.descobreTabu(tabu)[op][op2]);
+                             j1.apagaItem(j1.inventario[escolha]);
                              j1.trocaTurno(j1, j2);
                     }else if(j1.inventario[escolha] instanceof ItemMago && tabu.descobreTabu(tabu)[op][op2] instanceof Mago){
                              System.out.println("Item Equipado!");
                              j1.inventario[escolha].equipar(tabu.descobreTabu(tabu)[op][op2]);
+                             j1.apagaItem(j1.inventario[escolha]);
                              j1.trocaTurno(j1, j2);
                     }else if(j1.inventario[escolha] instanceof ItemTank && tabu.descobreTabu(tabu)[op][op2] instanceof Tank){
                              System.out.println("Item Equipado!");    
                              j1.inventario[escolha].equipar(tabu.descobreTabu(tabu)[op][op2]);
+                             j1.apagaItem(j1.inventario[escolha]);
                              j1.trocaTurno(j1, j2);
                     }else if(j1.inventario[escolha] instanceof ItemSuporte && tabu.descobreTabu(tabu)[op][op2] instanceof Suporte){
                         System.out.println("Item Equipado!");   
                              j1.inventario[escolha].equipar(tabu.descobreTabu(tabu)[op][op2]);
+                             j1.apagaItem(j1.inventario[escolha]);
                              j1.trocaTurno(j1, j2);
                     }else if(j1.inventario[escolha] instanceof ItemGenerico){
                         System.out.println("Item Equipado!");    
                              j1.inventario[escolha].equipar(tabu.descobreTabu(tabu)[op][op2]);
+                             j1.apagaItem(j1.inventario[escolha]);
                              j1.trocaTurno(j1, j2);
                     }else if(j1.inventario[escolha] instanceof itemAtirador && tabu.descobreTabu(tabu)[op][op2] instanceof Atirador){
                             System.out.println("Item Equipado!");    
                             j1.inventario[escolha].equipar(tabu.descobreTabu(tabu)[op][op2]);
+                            j1.apagaItem(j1.inventario[escolha]);
                             j1.trocaTurno(j1, j2);
                     }else{
                         System.out.println("Nao eh possi­vel equipar esse item, pois ele nao eh da classe do personagem selecionado, tente novamente");
@@ -206,7 +242,6 @@ public class main {
                 //RECEBIMENTO DE ITENS DO ARQUIVO PARA O PLAYER
                 j1.inicioArquivo(); 
                 j2.inicioArquivo();
-                
                 
                 
                 
@@ -274,7 +309,7 @@ public class main {
                 
                 
                 //FASE DE ACOES
-                while(!checarFimJogo(tabu) && quantTurnos<2){ //checa a existencia de alguma peca no campo e valida a quantidade de turnos atual
+                while(!checarFimJogo(tabu) && quantTurnos<MAXTURNOS){ //checa a existencia de alguma peca no campo e valida a quantidade de turnos atual
                     
                     quantTurnos++;
                 //TURNO J1
@@ -306,8 +341,7 @@ public class main {
                            System.out.println("Nao eh possivel atacar essa pca, tente novamente");
                        }
                             
-                       //0-Armadura
-                       //1-Orbe
+                      
                 }else if(escolha==2){//Selecionado Ataque Especial
                     if(validaEsp(tabu.descobreTabu(tabu)[op][op2])){//Faz uma validacao especifica dos prerequisitos para usar o ataque especial de determinadas pecas caso exista
                     System.out.println("Digite as coordenadas da peca que voceª deseja atacar");
@@ -360,7 +394,7 @@ public class main {
                 }
                 if(checarFimJogo(tabu))break;
                 while(j2.isTurno()){
-                System.out.println("Querido "+j2.getNome()+" digite as coordenadas da peca que voceª deseja executar a acao:");
+                System.out.println("Querido "+j2.getNome()+" digite as coordenadas da peca que voce deseja executar a acao:");
                 op=ler.nextInt();
                 op2=ler.nextInt();
                 
@@ -422,16 +456,21 @@ public class main {
                     escolha=ler.nextInt();
                     equipaItemClasse(j2,j1,escolha,tabu,op,op2);
                     }else{
-                        System.out.println("Voce nÃ£o possui itens no inventario, selecione outra opcao");
+                        System.out.println("Voce nao possui itens no inventario, selecione outra opcao");
                     }
                 }
                 tabu.imprimir(tabu);
 
                     }//Fecha valida peca
-                else System.out.println("Essa nao eh uma peca vÃalida, tente novamente selecionando uma peca do seu time");
+                else System.out.println("Essa nao eh uma peca valida, tente novamente selecionando uma peca do seu time");
                 }//Fecha turno j2
                 }
                 
+                
+                
+                if(quantTurnos==MAXTURNOS){
+                    desempatar(tabu);
+                }
                 
                 j1.fimArquivo();
                 j2.fimArquivo();
@@ -442,7 +481,7 @@ public class main {
         
         }//Fecha Main menor
        
-     }//Fecha Main
+     }//Fecha Main maior
 
 
 

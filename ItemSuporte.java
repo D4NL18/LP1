@@ -19,7 +19,7 @@ public class ItemSuporte extends Item{
 	}
 
         public ItemSuporte(){
-            this.setNome("Band-aid");
+            this.setNome("Band-aid ");
         }
     
 }
