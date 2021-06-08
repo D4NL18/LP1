@@ -9,4 +9,9 @@ public class ControllerMenu {
     private void IrParaRegras() throws IOException {
         App.setRoot("Regras");
     }
+    
+     @FXML
+    private void IrParaJogar() throws IOException {
+        App.setRoot("SelecaoMapa");
+    }
 }

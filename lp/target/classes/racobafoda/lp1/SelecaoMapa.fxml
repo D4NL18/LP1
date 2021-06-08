@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="racobafoda.lp1.ControllerSelecaoMapa">
+   <children>
+      <ImageView fitHeight="409.0" fitWidth="619.0" layoutX="-9.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="@madeira.png" />
+         </image>
+      </ImageView>
+            <Button layoutX="14.0" layoutY="338.0" mnemonicParsing="false" onAction="#IrParaMenu" prefHeight="48.0" prefWidth="71.0" style="-fx-background-color: red;" text="Voltar" textFill="WHITE" />
+      <Label layoutX="154.0" layoutY="69.0" text="Jogador 1" />
+      <Label layoutX="403.0" layoutY="69.0" text="Jogador 2" />
+      <TextField fx:id="NomeJogador1" layoutX="106.0" layoutY="93.0" onKeyTyped="#AlterarNome" />
+      <TextField fx:id="NomeJogador2" layoutX="355.0" layoutY="93.0" onKeyTyped="#AlterarNome" />
+      <Label layoutX="96.0" layoutY="152.0" text="Mapa 1: Fogo (10x10)" />
+      <Label layoutX="243.0" layoutY="154.0" text="Mapa 2: Gelo (12x12)" />
+      <Label layoutX="381.0" layoutY="152.0" text="Mapa 3: Grama (15x15)" />
+      <ImageView fx:id="mapaFogo" fitHeight="116.0" fitWidth="123.0" layoutX="92.0" layoutY="180.0" onMouseClicked="#SelecionarMapaFogo" pickOnBounds="true">
+         <image>
+            <Image url="@fogo.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="mapaGelo" fitHeight="116.0" fitWidth="123.0" layoutX="238.0" layoutY="180.0" onMouseClicked="#SelecionarMapaGelo" pickOnBounds="true">
+         <image>
+            <Image url="@gelo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="mapaGrama" fitHeight="116.0" fitWidth="123.0" layoutX="381.0" layoutY="180.0" onMouseClicked="#SelecionarMapaGrama" pickOnBounds="true">
+         <image>
+            <Image url="@grama.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="meuLabel" layoutX="286.0" layoutY="28.0" text="Label" />
+      <Button layoutX="456.0" layoutY="338.0" mnemonicParsing="false" onAction="#AlterarNome" prefHeight="48.0" prefWidth="71.0" style="-fx-background-color: #69d00b;" text="Jogar" textFill="WHITE" />
+   </children>
+</AnchorPane>

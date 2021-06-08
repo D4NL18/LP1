@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="racobafoda.lp1.ControllerRegras">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../../../../169599270_1280x720.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="14.0" layoutY="338.0" mnemonicParsing="false" onAction="#IrParaMenu" prefHeight="48.0" prefWidth="71.0" style="-fx-background-color: red;" text="Voltar" textFill="WHITE" />
+   </children>
+</AnchorPane>

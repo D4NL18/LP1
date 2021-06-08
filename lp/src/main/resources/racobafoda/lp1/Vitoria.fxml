@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="racobafoda.lp1.ControllerVitoria">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="610.0" opacity="0.7" pickOnBounds="true">
+         <image>
+            <Image url="@vitoria.jpeg" />
+         </image></ImageView>
+      <Label layoutX="214.0" layoutY="6.0" text="Parabéns!">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="198.0" layoutY="64.0" text="Vitória do jogador X" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="154.0" layoutY="332.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="71.0" style="-fx-background-color: red;" text="Sair" textFill="WHITE" />
+      <Button layoutX="352.0" layoutY="332.0" mnemonicParsing="false" onAction="#IrParaMenu" prefHeight="48.0" prefWidth="71.0" text="Menu" />
+   </children>
+</AnchorPane>
