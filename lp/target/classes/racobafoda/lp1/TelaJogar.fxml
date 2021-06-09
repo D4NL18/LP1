@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,9 +10,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="racobafoda.lp1.ControllerTelaJogar">
+<AnchorPane id="AnchorPane" fx:id="OJOGO" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="racobafoda.lp1.ControllerTelaJogar">
    <children>
-      <ImageView fitHeight="300.0" fitWidth="600.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="100.0" fitWidth="600.0" layoutY="300.0" opacity="0.8" pickOnBounds="true">
+         <image>
+            <Image url="@madeira.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1a2836" height="90.0" layoutX="138.0" layoutY="305.0" stroke="BLACK" strokeType="INSIDE" width="235.0" />
+      <Button fx:id="botaoAtaq" layoutX="386.0" layoutY="314.0" mnemonicParsing="false" onAction="#ataque" text="Atacar" />
+      <Button fx:id="botaoAtaqEsp" layoutX="457.0" layoutY="315.0" mnemonicParsing="false" onAction="#ataqEsp" text="Ataque Esp." />
+      <Button fx:id="botaoMover" layoutX="386.0" layoutY="363.0" mnemonicParsing="false" onAction="#mover" text="Mover" />
+      <Button fx:id="botaoItem" layoutX="455.0" layoutY="363.0" mnemonicParsing="false" onAction="#equiparItem" text="Equipar Item" />
+      <Label fx:id="labelNome" layoutX="153.0" layoutY="336.0" style="-fx-background-color: white;" text="Nome:" textFill="#1a2836" />
+      <Label fx:id="labelVida" layoutX="153.0" layoutY="365.0" style="-fx-background-color: white;" text="Vida:" textFill="#1a2836" />
+      <Label fx:id="labelAtaq" layoutX="293.0" layoutY="336.0" style="-fx-background-color: white;" text="Ataque:" textFill="#1a2836" />
+      <Label fx:id="labelDef" layoutX="294.0" layoutY="365.0" style="-fx-background-color: white;" text="Defesa:" textFill="#1a2836" />
+      <Label fx:id="labelNomePlayer" layoutX="150.0" layoutY="310.0" prefHeight="17.0" prefWidth="143.0" style="-fx-background-color: white;" text="Turno de: " textFill="#1a2836" />
+      <ImageView fx:id="imgFundo" fitHeight="300.0" fitWidth="600.0" pickOnBounds="true" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7f7f700" height="66.0" layoutX="35.0" layoutY="325.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+      <ImageView fx:id="imagemRep" fitHeight="66.0" fitWidth="69.0" layoutX="35.0" layoutY="315.0" onMouseClicked="#escolhePeca" pickOnBounds="true" />
+      <Label layoutX="28.0" layoutY="297.0" prefHeight="25.0" prefWidth="84.0" text="Clique aqui:" underline="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="contadorTurnos" layoutX="539.0" layoutY="306.0" text="Turno: 0" />
    </children>
 </AnchorPane>

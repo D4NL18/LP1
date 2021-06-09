@@ -23,7 +23,7 @@ public class Player {
     private String nome;
     private int numero; 
     private boolean turno;
-    
+    String listaItens;
     
     public static Item sorteiaItem(){//Atribui um item para cada valor e retorna o item sorteado
         Random random = new Random();
@@ -61,12 +61,15 @@ public class Player {
     
     
     
-    public void mostraInventario(){
+    public String mostraInventario(){
+        
         for (int i=0;i<this.inventario.length;i++){
             if(this.inventario[i]!=null){
-            System.out.println(i+"- "+this.inventario[i].getNome()+"("+this.inventario[i].getClass().getSimpleName()+")");
+                listaItens.concat(i+"- "+this.inventario[i].getNome()+"("+this.inventario[i].getClass().getSimpleName()+")\n");
+                return listaItens;
             }
         }
+        return null;
     }
     
     public boolean validaPeca(Tabuleiro tabu,int x,int y){//valida se a peca eh sua baseado na substring do visual da propria peca

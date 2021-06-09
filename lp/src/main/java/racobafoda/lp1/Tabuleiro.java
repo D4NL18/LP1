@@ -7,8 +7,8 @@ public class Tabuleiro {
     public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
     public static final String ANSI_RESET = "\u001B[0m";
     
-        public Tabuleiro(int op){
-            this.op = op;
+        public Tabuleiro(){
+            
         }
             
         private int op;

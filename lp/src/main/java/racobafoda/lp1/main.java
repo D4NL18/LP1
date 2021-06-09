@@ -237,7 +237,7 @@ public class main {
                 System.out.println("2=12x12");
                 System.out.println("3=15x15");
 		tipoTabu = ler.nextInt();
-		Tabuleiro tabu = new Tabuleiro(tipoTabu);
+		Tabuleiro tabu = new Tabuleiro();
                 
                 //RECEBIMENTO DE ITENS DO ARQUIVO PARA O PLAYER
                 j1.inicioArquivo(); 

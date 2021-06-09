@@ -15,8 +15,6 @@ public class ControllerSelecaoMapa {
     @FXML
     ImageView mapaGrama;
     @FXML
-    Label meuLabel;
-    @FXML
     TextField NomeJogador1;
     @FXML
     TextField NomeJogador2;
@@ -26,26 +24,27 @@ public class ControllerSelecaoMapa {
         private void IrParaMenu() throws IOException {
         App.setRoot("menu");
     }
+         @FXML
+        private void IrParaJogar() throws IOException {
+        App.setRoot("TelaJogar");
+    }
         @FXML
         private void SelecionarMapaFogo() throws IOException {
-        meuLabel.setText("Fogo");
         App.tabu.setOp(1);
     }
         @FXML
         private void SelecionarMapaGelo() throws IOException {
-        meuLabel.setText("Gelo");
         App.tabu.setOp(2);
     }
         @FXML
         private void SelecionarMapaGrama() throws IOException {
-        meuLabel.setText("Grama");
         App.tabu.setOp(3);
+        
     }
         @FXML
         private void AlterarNome() throws IOException {
             App.j1.setNome(NomeJogador1.getText());
             App.j2.setNome(NomeJogador2.getText());
-            meuLabel.setText(App.tabu.getOp() + "");
             
         
     }

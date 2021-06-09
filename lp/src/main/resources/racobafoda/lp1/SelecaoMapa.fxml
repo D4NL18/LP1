@@ -37,7 +37,7 @@
             <Image url="@grama.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="meuLabel" layoutX="286.0" layoutY="28.0" text="Label" />
-      <Button layoutX="456.0" layoutY="338.0" mnemonicParsing="false" onAction="#AlterarNome" prefHeight="48.0" prefWidth="71.0" style="-fx-background-color: #69d00b;" text="Jogar" textFill="WHITE" />
+      
+      <Button layoutX="456.0" layoutY="338.0" mnemonicParsing="false" onAction="#IrParaJogar" prefHeight="48.0" prefWidth="71.0" style="-fx-background-color: #69d00b;" text="Jogar" textFill="WHITE" />
    </children>
 </AnchorPane>
