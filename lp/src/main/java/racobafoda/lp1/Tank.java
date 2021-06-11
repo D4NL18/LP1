@@ -1,6 +1,10 @@
 package racobafoda.lp1;
+
+import javafx.scene.control.Alert;
+
 public class Tank extends Personagem{
 	
+    
 	boolean espTank = false;	
 	
 	
@@ -17,30 +21,67 @@ public class Tank extends Personagem{
     @Override
     public void atacar(Tabuleiro tabu, Personagem pAtacado,int x, int y){
         this.setDefesa(25);
-    	if(this.getItem() && this.getNome() == "Red Riot") System.out.println(this.getNome() + " Bebeu a Trigger, tornando-se mais resistente");
-    	else if(this.getItem() && this.getNome() == "Bulat") System.out.println(this.getNome() + " ativou a incursio, tornando-se mais resistente");
+
+    	if(this.getItem() && this.getNome() == "Red Riot") {
+            Alert beep = new Alert(Alert.AlertType.INFORMATION);
+            beep.setTitle("Atacando...");
+            beep.setContentText(this.getNome() + " Bebeu a Trigger, tornando-se mais resistente");
+            beep.show();
+        }
+    	else if(this.getItem() && this.getNome() == "Bulat") {
+            Alert beep = new Alert(Alert.AlertType.INFORMATION);
+            beep.setTitle("Atacando...");
+            beep.setContentText(this.getNome() + " ativou a incursio, tornando-se mais resistente");
+            beep.show();
+        }
     	
-            if(this.getNome()=="Red Riot")System.out.println(this.getNome()+" encheu de porrada seu inimigo: "+pAtacado.getNome());
-            else if(this.getNome()=="Bulat")System.out.println(this.getNome()+" deu uma espadada em seu inimigo: "+pAtacado.getNome() + ((this.getItem()) ? " com a incursio!" : ""));
+        if(this.getNome()=="Red Riot"){
+            Alert beep = new Alert(Alert.AlertType.INFORMATION);
+            beep.setTitle("Atacando...");
+            beep.setContentText(this.getNome()+" encheu de porrada seu inimigo: "+pAtacado.getNome());
+            beep.show();
+        }
+            else if(this.getNome()=="Bulat"){
+                Alert beep = new Alert(Alert.AlertType.INFORMATION);
+                beep.setTitle("Atacando...");
+                beep.setContentText(this.getNome()+" deu uma espadada em seu inimigo: "+pAtacado.getNome() + ((this.getItem()) ? " com a incursio!" : ""));
+                beep.show();
+            }
             pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa())/100));
-            if(pAtacado.getVida()>0)System.out.println("Foi causado "+ (this.getDano() * (100 - pAtacado.getDefesa())/100) +" de dano ao inimigo "+pAtacado.getNome()+" ,restando "+pAtacado.getVida()+" de vida");
+            if(pAtacado.getVida()>0){
+                Alert beep = new Alert(Alert.AlertType.INFORMATION);
+                beep.setTitle("Atacando...");
+                beep.setContentText("Foi causado "+ (this.getDano() * (100 - pAtacado.getDefesa())/100) +" de dano ao inimigo "+pAtacado.getNome()+" ,restando "+pAtacado.getVida()+" de vida");
+                beep.show();
+            }
             else{
-                System.out.println(this.getNome()+" causou dano suficiente para eliminar o inimigo!");
+                Alert beep = new Alert(Alert.AlertType.INFORMATION);
+                beep.setTitle("Atacando...");
+                beep.setContentText(this.getNome()+" causou dano suficiente para eliminar o inimigo!");
+                beep.show();
                 tabu.remover(tabu, x, y);
             }
+            
         }
         
     @Override
     public void ataqEsp(Tabuleiro tabu, Personagem pAtacado,int x, int y){
+             
         	if(!espTank) {
+                    Alert beep = new Alert(Alert.AlertType.INFORMATION);
+                    beep.setTitle("Usando Ataque Especial...");  
 	        	this.setDefesa(100);
-	        	System.out.print((this.getItem()) ? (this.getNome() + " guardou seu item para a proxima rodada\n") : "");
-	        	if(this.getNome() == "Red Riot")System.out.println(this.getNome() + " ativou seu enrijecimento, tornando-se imortal ate realizar um ataque");
-	        	else if(this.getNome() == "Bulat")System.out.println(this.getNome() + ": INCURSIOOOOOOOOOOOOOOOOOO\n"
+	        	beep.setContentText((this.getItem()) ? (this.getNome() + " guardou seu item para a proxima rodada\n") : "");
+	        	if(this.getNome() == "Red Riot")beep.setContentText(this.getNome() + " ativou seu enrijecimento, tornando-se imortal ate realizar um ataque");
+	        	else if(this.getNome() == "Bulat")beep.setContentText(this.getNome() + ": INCURSIOOOOOOOOOOOOOOOOOO\n"
 	        	+ "Bulat transformou a sua incursio em uma armadura dourada, tornando-se imortal ate realizar um ataque");
 	        	espTank = true;
+                        beep.show();
         	}else{
-                    System.out.println("Seu especial nao pode ser ativado duas vezes na mesma partida");
+                    Alert beep = new Alert(Alert.AlertType.INFORMATION);
+                    beep.setTitle("Usando Ataque Especial...");  
+                    beep.setContentText("Seu especial nao pode ser ativado duas vezes na mesma partida");
+                    beep.show();
                 }
         	
         }

@@ -414,13 +414,13 @@ public class ControllerTelaJogar implements Initializable{
                                         App.tabuleiroImagem[i][j].setPreserveRatio(false);
                                         
                                     }else if(t.descobreTabu(t)[i][j].getVisual()=="T1"){
-                                        Image img = new Image(getClass().getResourceAsStream("drEstranhoBase.jpg"));
+                                        Image img = new Image(getClass().getResourceAsStream("redriot.png"));
                                         
                                         App.tabuleiroImagem[i][j].setImage(img);
                                         App.tabuleiroImagem[i][j].setPreserveRatio(false);
                                         
                                     }else if(t.descobreTabu(t)[i][j].getVisual()=="T2"){
-                                        Image img = new Image(getClass().getResourceAsStream("drEstranhoBase.jpg"));
+                                        Image img = new Image(getClass().getResourceAsStream("bulat.png"));
                                         
                                         App.tabuleiroImagem[i][j].setImage(img);
                                         App.tabuleiroImagem[i][j].setPreserveRatio(false);
@@ -450,13 +450,13 @@ public class ControllerTelaJogar implements Initializable{
                                         App.tabuleiroImagem[i][j].setPreserveRatio(false);
                                         
                                     }else if(t.descobreTabu(t)[i][j].getVisual()=="S1"){
-                                        Image img = new Image(getClass().getResourceAsStream("drEstranhoBase.jpg"));
+                                        Image img = new Image(getClass().getResourceAsStream("tsunade.png"));
                                         
                                         App.tabuleiroImagem[i][j].setImage(img);
                                         App.tabuleiroImagem[i][j].setPreserveRatio(false);
                                         
                                     }else if(t.descobreTabu(t)[i][j].getVisual()=="S2"){
-                                        Image img = new Image(getClass().getResourceAsStream("drEstranhoBase.jpg"));
+                                        Image img = new Image(getClass().getResourceAsStream("sage.png"));
                                         
                                         App.tabuleiroImagem[i][j].setImage(img);
                                         App.tabuleiroImagem[i][j].setPreserveRatio(false);

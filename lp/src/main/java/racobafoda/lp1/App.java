@@ -55,8 +55,8 @@ public class App extends Application {
         
         
     public static void main(String[] args) {
-        listaPer[0]=m1;
-        listaPer[1]=m2;
+        listaPer[0]=t1;
+        listaPer[1]=t2;
         listaPer[2]=t1;
         listaPer[3]=t2;
         listaPer[4]=s1;
