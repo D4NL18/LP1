@@ -1,5 +1,6 @@
 package racobafoda.lp1;
 
+import javafx.scene.control.Alert;
 
 public class Atirador extends Personagem {
     
@@ -22,19 +23,45 @@ public class Atirador extends Personagem {
         if(!this.getItem()){
             
             if(this.getNome()=="Legolas"){
-                System.out.println(this.getNome()+" retira da sua aljava uma flecha "
+                
+                Alert beep = new Alert(Alert.AlertType.INFORMATION);
+                beep.setTitle("Atacando...");
+                beep.setContentText(this.getNome()+" retira da sua aljava uma flecha "
                 + "e com seu arco atira-a, ferindo "+pAtacado.getNome()+".");
+                beep.show();
+                
+
             }
             else if(this.getNome()=="Cj"){
-                System.out.println("Eu sou um maniaco com uma arma. "+this.getNome()+" atira em "+pAtacado.getNome());
+                
+                Alert beep = new Alert(Alert.AlertType.INFORMATION);
+                beep.setTitle("Atacando...");
+                beep.setContentText("Eu sou um maniaco com uma arma. "+this.getNome()+" atira em "+pAtacado.getNome());
+                beep.show();
+                
+
             }
               
             pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa())/100));
 
-            if(pAtacado.getVida()>0)System.out.println("Foi causado "+ (this.getDano() * (100 - pAtacado.getDefesa())/100) +" de dano ao inimigo "+pAtacado.getNome()+" restando "+pAtacado.getVida()+" de vida");
+            if(pAtacado.getVida()>0){
+                
+                Alert beep = new Alert(Alert.AlertType.INFORMATION);
+                beep.setTitle("Atacando...");
+                beep.setContentText("Foi causado "+ (this.getDano() * (100 - pAtacado.getDefesa())/100) +" de dano ao inimigo "+pAtacado.getNome()+" ,restando "+pAtacado.getVida()+" de vida");
+                beep.show();
+                
+
+            }
             
             else{
-                System.out.println(this.getNome()+" causou dano suficiente para eliminar o inimigo!");
+                
+                Alert beep = new Alert(Alert.AlertType.INFORMATION);
+                beep.setTitle("Atacando...");
+                beep.setContentText(this.getNome()+" causou dano suficiente para eliminar o inimigo!");
+                beep.show();
+                
+
                 tabu.remover(tabu, x, y);
             }
             
@@ -46,14 +73,26 @@ public class Atirador extends Personagem {
     public void ataqEsp(Tabuleiro tabu, Personagem pAtacado,int x, int y){
 	    this.setRange(4);
 	    if(this.getNome() == "Legolas"){
-                System.out.println(this.getNome() + " concentrou-se e com sua visao elfica pode enxergar alem das barreiras humanas e ataca "+pAtacado.getNome());
+                
+                Alert beep = new Alert(Alert.AlertType.INFORMATION);
+                beep.setTitle("Usando Ataque Especial...");  
+                beep.setContentText(this.getNome() + " concentrou-se e com sua visao elfica pode enxergar alem das barreiras humanas e ataca "+pAtacado.getNome());
+                
+                
                 pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa())/100));
+                beep.show();
                 this.setRange(3);
             }
             
 	    else if(this.getNome() == "Cj"){
-                System.out.println("Você quer um buraco na sua cabeça, otario! "+this.getNome()+" atira em "+pAtacado.getNome());
+                
+                Alert beep = new Alert(Alert.AlertType.INFORMATION);
+                beep.setTitle("Usando Ataque Especial...");  
+                beep.setContentText("Você quer um buraco na sua cabeça, otario! "+this.getNome()+" atira em "+pAtacado.getNome());
+                
+                
                 pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa())/100));
+                beep.show();
                 this.setRange(3);
             }
 	    
