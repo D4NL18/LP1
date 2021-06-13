@@ -460,13 +460,13 @@ public class ControllerTelaJogar implements Initializable{
                                         App.tabuleiroImagem[i][j].setPreserveRatio(false);
                                         
                                     }else if(t.descobreTabu(t)[i][j].getVisual()=="A1"){
-                                        Image img = new Image(getClass().getResourceAsStream("drEstranhoBase.jpg"));
+                                        Image img = new Image(getClass().getResourceAsStream("legolas01.png"));
                                         
                                         App.tabuleiroImagem[i][j].setImage(img);
                                         App.tabuleiroImagem[i][j].setPreserveRatio(false);
                                         
                                     }else if(t.descobreTabu(t)[i][j].getVisual()=="A2"){
-                                        Image img = new Image(getClass().getResourceAsStream("drEstranhoBase.jpg"));
+                                        Image img = new Image(getClass().getResourceAsStream("cj 01.png"));
                                         
                                         App.tabuleiroImagem[i][j].setImage(img);
                                         App.tabuleiroImagem[i][j].setPreserveRatio(false);
