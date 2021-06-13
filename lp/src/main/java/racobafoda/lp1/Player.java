@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.File;
 import java.util.Random;
 import java.util.Scanner;
+import javafx.scene.control.Alert;
 public class Player {
 
   
@@ -143,6 +144,7 @@ public class Player {
         String linha;
         String nomeArq = this.getNome()+".txt";
         boolean exists = (new File(nomeArq)).exists();
+       
         if(exists){
         Scanner in = new Scanner(new FileReader(nomeArq));
         if(in.hasNextLine()){
@@ -164,12 +166,21 @@ public class Player {
             }
         }
         }
-        System.out.println("O player "+this.getNome()+" ja possui um registro de inventario de outras batalhas. Ele sera transferido para essa batalha.");
+            Alert beep = new Alert(Alert.AlertType.INFORMATION);
+            beep.setTitle("Inventario Passado");
+            beep.setContentText("O player "+this.getNome()+" ja possui um registro de inventario de outras batalhas. Ele sera transferido para essa batalha.");
+            beep.show();
         mostraInventario();
         in.close();
         }else{
-            System.out.println("O usuário "+this.getNome()+" não possui um inventário prévio.");
+            Alert beep = new Alert(Alert.AlertType.INFORMATION);
+            beep.setTitle("Inventario Passado");
+            beep.setContentText("O usuário "+this.getNome()+" não possui um inventário prévio.");
+            beep.show();
         }
+        
+            
+        
      }      
             
             

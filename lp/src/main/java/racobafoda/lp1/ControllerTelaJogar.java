@@ -153,7 +153,7 @@ public class ControllerTelaJogar implements Initializable{
     
   }
    
-  @FXML
+ @FXML
   private void ataque()throws IOException{
       TextInputDialog pegarX = new TextInputDialog();
       pegarX.setTitle("Pegando as coordenadas X:");
@@ -220,7 +220,7 @@ public class ControllerTelaJogar implements Initializable{
       pegarY.setContentText("Valor: ");
       pegarY.showAndWait();
       int op2 = Integer.parseInt(pegarY.getResult(), 10);
-      if(validaEsp(App.tabu.descobreTabu(App.tabu)[op][op2])){
+      if(validaEsp(App.tabu.descobreTabu(App.tabu)[cX][cY])){
         if(validaAtaq(App.tabu,cX,cY,op,op2) && App.tabu.descobreTabu(App.tabu)[op][op2]!=null){
         App.tabu.descobreTabu(App.tabu)[cX][cY].ataqEsp(App.tabu,App.tabu.descobreTabu(App.tabu)[op][op2],op,op2);
         App.j1.trocaTurno(App.j1, App.j2);
@@ -396,13 +396,13 @@ public class ControllerTelaJogar implements Initializable{
                             
 				if(t.descobreTabu(t)[i][j]!=null){
                                     if(t.descobreTabu(t)[i][j].getVisual()=="@ "){
-                                        Image img = new Image(getClass().getResourceAsStream("gelo.png"));
+                                        Image img = new Image(getClass().getResourceAsStream("pedra.png"));
                                         
                                         App.tabuleiroImagem[i][j].setImage(img);
                                         App.tabuleiroImagem[i][j].setPreserveRatio(false);
                                         
                                     } else if(t.descobreTabu(t)[i][j].getVisual()=="M1"){
-                                        Image img = new Image(getClass().getResourceAsStream("drEstranhoBase.jpg"));
+                                        Image img = new Image(getClass().getResourceAsStream("drEstranhoBase.png"));
                                         
                                         App.tabuleiroImagem[i][j].setImage(img);
                                         App.tabuleiroImagem[i][j].setPreserveRatio(false);
@@ -498,12 +498,20 @@ public class ControllerTelaJogar implements Initializable{
                             if(tabu.inserir(tabu,listaPer[i+1],op,op2)==1);
                             else{
                                 //System.out.println("Nao eh possi­vel inserir uma peca nessa posicao");
+                            Alert beep = new Alert(Alert.AlertType.ERROR);
+                            beep.setTitle("Erro");
+                            beep.setContentText("Nao eh possi­vel inserir uma peca nessa posicao");
+                            beep.show();
                                  i--;
                             }
                         }else {
                             if(tabu.inserir(tabu,listaPer[i-1],op,op2)==1);
                             else{
                                 //System.out.println("Nao eh possi­vel inserir uma peca nessa posicao");
+                            Alert beep = new Alert(Alert.AlertType.ERROR);
+                            beep.setTitle("Erro");
+                            beep.setContentText("Nao eh possi­vel inserir uma peca nessa posicao");
+                            beep.show();
                                  i--;
                             }
       }
@@ -513,12 +521,20 @@ public class ControllerTelaJogar implements Initializable{
                             if(tabu.inserir(tabu,listaPer[i],op,op2)==1);
                             else{
                                 //System.out.println("Nao eh possi­vel inserir uma peca nessa posicao");
+                            Alert beep = new Alert(Alert.AlertType.ERROR);
+                            beep.setTitle("Erro");
+                            beep.setContentText("Nao eh possi­vel inserir uma peca nessa posicao");
+                            beep.show();
                                  i--;
                             }
                         }else {
                             if(tabu.inserir(tabu,listaPer[i],op,op2)==1);
                             else{
                                 //System.out.println("Nao eh possi­vel inserir uma peca nessa posicao");
+                                Alert beep = new Alert(Alert.AlertType.ERROR);
+                            beep.setTitle("Erro");
+                            beep.setContentText("Nao eh possi­vel inserir uma peca nessa posicao");
+                            beep.show();
                                  i--;
                             }
                         }
