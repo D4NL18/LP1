@@ -223,6 +223,22 @@ public class ControllerTelaJogar implements Initializable{
       if(validaEsp(App.tabu.descobreTabu(App.tabu)[cX][cY])){
         if(validaAtaq(App.tabu,cX,cY,op,op2) && App.tabu.descobreTabu(App.tabu)[op][op2]!=null){
         App.tabu.descobreTabu(App.tabu)[cX][cY].ataqEsp(App.tabu,App.tabu.descobreTabu(App.tabu)[op][op2],op,op2);
+        if(App.tabu.descobreTabu(App.tabu)[op][op2]==null){
+        if(App.j1.isTurno()){
+           Alert beep = new Alert(Alert.AlertType.INFORMATION);
+           beep.setTitle("Recompensa de batalha");
+           beep.setContentText("Voce conseguiu uma recompensa por eliminar o inimigo");
+           beep.show();
+            App.j1.guardaItem(App.j1.sorteiaItem());
+        }
+        else if(App.j2.isTurno()){
+           Alert beep = new Alert(Alert.AlertType.INFORMATION);
+           beep.setTitle("Recompensa de batalha");
+           beep.setContentText("Voce conseguiu uma recompensa por eliminar o inimigo");
+           beep.show();
+            App.j2.guardaItem(App.j2.sorteiaItem());
+        }
+      }
         App.j1.trocaTurno(App.j1, App.j2);
         espelhaTabuleiros(App.tabu);
         quantTurnos++;
@@ -312,10 +328,13 @@ public class ControllerTelaJogar implements Initializable{
            if(App.j1.inventario[0]!=null){
                 TextInputDialog pegarX = new TextInputDialog();
                 pegarX.setTitle("Escolha de Item");
-                pegarX.setHeaderText(App.j1.getNome()+" digite o indice do item que deseja equipar: \n"+App.j1.mostraInventario());
+                App.j1.mostraInventario();
+                pegarX.setHeaderText(App.j1.getNome()+" digite o indice do item que deseja equipar: \n"+App.j1.getListaItens());
+                App.j1.setListaItens("");
                 pegarX.setContentText("Indice: ");
                 pegarX.showAndWait();
                 int op = Integer.parseInt(pegarX.getResult(), 10);
+                equipaItemClasse(App.j1, App.j2, op, App.tabu, cX, cY);
            }else{
                             Alert beep = new Alert(Alert.AlertType.ERROR);
                             beep.setTitle("Erro");
@@ -328,10 +347,13 @@ public class ControllerTelaJogar implements Initializable{
            if(App.j2.inventario[0]!=null){
                 TextInputDialog pegarX = new TextInputDialog();
                 pegarX.setTitle("Escolha de Item");
-                pegarX.setHeaderText(App.j2.getNome()+" digite o indice do item que deseja equipar: \n"+App.j2.mostraInventario());
+                App.j2.mostraInventario();
+                pegarX.setHeaderText(App.j2.getNome()+" digite o indice do item que deseja equipar: \n"+App.j2.getListaItens());
+                App.j2.setListaItens("");
                 pegarX.setContentText("Indice: ");
                 pegarX.showAndWait();
                 int op = Integer.parseInt(pegarX.getResult(), 10);
+                equipaItemClasse(App.j2, App.j1, op, App.tabu, cX, cY);
             }else{
                             Alert beep = new Alert(Alert.AlertType.ERROR);
                             beep.setTitle("Erro");

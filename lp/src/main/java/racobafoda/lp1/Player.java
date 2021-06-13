@@ -24,7 +24,7 @@ public class Player {
     private String nome;
     private int numero; 
     private boolean turno;
-    String listaItens;
+    private String listaItens="";
     
     public static Item sorteiaItem(){//Atribui um item para cada valor e retorna o item sorteado
         Random random = new Random();
@@ -62,15 +62,16 @@ public class Player {
     
     
     
-    public String mostraInventario(){
+    public void mostraInventario(){
         
         for (int i=0;i<this.inventario.length;i++){
             if(this.inventario[i]!=null){
-                listaItens.concat(i+"- "+this.inventario[i].getNome()+"("+this.inventario[i].getClass().getSimpleName()+")\n");
-                return listaItens;
+                String x = (i+"- "+this.inventario[i].getNome()+"("+this.inventario[i].getClass().getSimpleName()+")\n");
+                System.out.println(".");
+                setListaItens(getListaItens()+x);
+                
             }
         }
-        return null;
     }
     
     public boolean validaPeca(Tabuleiro tabu,int x,int y){//valida se a peca eh sua baseado na substring do visual da propria peca
@@ -144,7 +145,7 @@ public class Player {
         String linha;
         String nomeArq = this.getNome()+".txt";
         boolean exists = (new File(nomeArq)).exists();
-       
+       if(!ControllerTelaJogar.checarFimJogo(App.tabu)){
         if(exists){
         Scanner in = new Scanner(new FileReader(nomeArq));
         if(in.hasNextLine()){
@@ -166,21 +167,22 @@ public class Player {
             }
         }
         }
+        
             Alert beep = new Alert(Alert.AlertType.INFORMATION);
             beep.setTitle("Inventario Passado");
             beep.setContentText("O player "+this.getNome()+" ja possui um registro de inventario de outras batalhas. Ele sera transferido para essa batalha.");
             beep.show();
-        mostraInventario();
+        
         in.close();
         }else{
             Alert beep = new Alert(Alert.AlertType.INFORMATION);
-            beep.setTitle("Inventario Passado");
+            beep.setTitle("Inventario não encontrado");
             beep.setContentText("O usuário "+this.getNome()+" não possui um inventário prévio.");
             beep.show();
         }
         
             
-        
+       }
      }      
             
             
@@ -192,6 +194,16 @@ public class Player {
             }
         }
         w1.close();
+    }
+
+    
+    public String getListaItens() {
+        return listaItens;
+    }
+
+   
+    public void setListaItens(String listaItens) {
+        this.listaItens = listaItens;
     }
     
 }
