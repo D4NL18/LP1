@@ -1,10 +1,9 @@
 package racobafoda.lp1;
 
-import java.util.ArrayList;
+import javafx.scene.control.Alert;
 
 public class Guerreiro extends Personagem {
 
-	private int cooldown = 2;
 
 	public Guerreiro(String nome) {
 		super(nome);
@@ -24,18 +23,28 @@ public class Guerreiro extends Personagem {
 	public void atacar(Tabuleiro tabu, Personagem pAtacado, int x, int y) {
 		if (tabu.descobreTabu(tabu)[x][y] != null) {
 			if (this.getNome().equals("Zoro")) {
-				System.out.println(this.getNome() + " cortou o seu inimigo " + pAtacado.getNome() + " com a Shusui");
+				Alert beep = new Alert(Alert.AlertType.INFORMATION);
+				beep.setTitle("Atacando...");
+				beep.setContentText(this.getNome() + " cortou o seu inimigo " + pAtacado.getNome() + " com a Shusui");
+				beep.show();
 			} else {
-				System.out.println(
-						this.getNome() + " cortou o seu inimigo " + pAtacado.getNome() + " com o Machado Leviata");
+				Alert beep = new Alert(Alert.AlertType.INFORMATION);
+				beep.setTitle("Atacando...");
+				beep.setContentText(this.getNome() + " cortou o seu inimigo " + pAtacado.getNome() + " com o Machado Leviata");
+				beep.show();
 			}
 			pAtacado.setVida(pAtacado.getVida() - (this.getDano() * (100 - pAtacado.getDefesa()) / 100));
 
 			if (pAtacado.getVida() > 0) {
-				System.out.println("Foi causado " + this.getDano() + " de dano ao inimigo " + pAtacado.getNome()
-						+ " restando " + pAtacado.getVida() + " de vida");
+				Alert beep = new Alert(Alert.AlertType.INFORMATION);
+				beep.setTitle("Atacando...");
+				beep.setContentText("Foi causado " + this.getDano() + " de dano ao inimigo " + pAtacado.getNome() + " restando " + pAtacado.getVida() + " de vida");
+				beep.show();
 			} else {
-				System.out.println(this.getNome() + " causou dano suficiente para eliminar o inimigo!");
+				Alert beep = new Alert(Alert.AlertType.INFORMATION);
+				beep.setTitle("Atacando...");
+				beep.setContentText(this.getNome() + " causou dano suficiente para eliminar o inimigo!");
+				beep.show();
 				tabu.remover(tabu, x, y);
 			}
 
@@ -88,9 +97,15 @@ public class Guerreiro extends Personagem {
                     
                 }
 		if (this.getNome().equals("Zoro")) {
-			System.out.println(this.getNome() + " usou o golpe Kokujo O Tatsumaki!");
+			Alert beep = new Alert(Alert.AlertType.INFORMATION);
+			beep.setTitle("Atacando...");
+			beep.setContentText(this.getNome() + " usou o golpe Kokujo O Tatsumaki!");
+			beep.show();
 		} else {
-			System.out.println(this.getNome() + " usou a Furia Espartana!");
+			Alert beep = new Alert(Alert.AlertType.INFORMATION);
+			beep.setTitle("Atacando...");
+			beep.setContentText(this.getNome() + " usou a Furia Espartana!");
+			beep.show();
 		}
                 
 		for (int i = 0; i < 8; i++) {
@@ -105,9 +120,15 @@ public class Guerreiro extends Personagem {
 						.setVida(persoAtacked.getVida() - (this.getDano() * (100 - persoAtacked.getDefesa()) / 100));
 
 				if (persoAtacked.getVida() > 0) {
-					System.out.println("Foi causado " + this.getDano() + " de dano ao inimigo " + persoAtacked.getNome() + " restando " + persoAtacked.getVida() + " de vida");
+					Alert beep = new Alert(Alert.AlertType.INFORMATION);
+					beep.setTitle("Atacando...");
+					beep.setContentText("Foi causado " + this.getDano() + " de dano ao inimigo " + persoAtacked.getNome() + " restando " + persoAtacked.getVida() + " de vida");
+					beep.show();
 				} else {
-					System.out.println(this.getNome() + " causou dano suficiente para eliminar o inimigo!");
+					Alert beep = new Alert(Alert.AlertType.INFORMATION);
+					beep.setTitle("Atacando...");
+					beep.setContentText(this.getNome() + " causou dano suficiente para eliminar o inimigo!");
+					beep.show();
 					tabu.remover(tabu, xPosReal[i], yPosReal[i]);
 				}
 			}
