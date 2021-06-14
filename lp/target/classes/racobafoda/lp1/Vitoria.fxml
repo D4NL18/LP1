@@ -19,7 +19,6 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <Button layoutX="154.0" layoutY="332.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="71.0" style="-fx-background-color: red;" text="Sair" textFill="WHITE" />
-      <Button layoutX="352.0" layoutY="332.0" mnemonicParsing="false" onAction="#IrParaMenu" prefHeight="48.0" prefWidth="71.0" text="Menu" />
+      <Button layoutX="270.0" layoutY="332.0" mnemonicParsing="false" onAction="#IrParaMenu" prefHeight="48.0" prefWidth="71.0" style="-fx-background-color: red;" text="Sair" textFill="WHITE" />
    </children>
 </AnchorPane>
