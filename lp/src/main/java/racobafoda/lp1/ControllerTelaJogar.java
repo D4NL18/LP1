@@ -569,8 +569,8 @@ public class ControllerTelaJogar implements Initializable{
   private boolean validaAtaq(Tabuleiro tabu,int op ,int op2, int x,int y){
         int range;
         if(tabu.descobreTabu(tabu)[x][y]!=null){
-            range=tabu.descobreTabu(tabu)[x][y].getRange();
-            if(Math.abs(x-op)<=range || Math.abs(y-op2)<=range) return true;
+            range=tabu.descobreTabu(tabu)[op][op2].getRange();
+            if(Math.abs(x-op)<=range && Math.abs(y-op2)<=range) return true;
         }
             return false;
 
