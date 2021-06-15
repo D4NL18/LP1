@@ -19,7 +19,7 @@
          </image>
       </ImageView>
       <Button fx:id="BotaoJogar" layoutX="362.0" layoutY="169.0" mnemonicParsing="false" onAction="#IrParaJogar" prefHeight="48.0" prefWidth="71.0" text="Jogar" />
-      <Button layoutX="169.0" layoutY="169.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="71.0" style="-fx-background-color: red;" text="Sair" textFill="WHITE" />
+      <Button layoutX="169.0" layoutY="169.0" mnemonicParsing="false" onAction="#FecharGame" prefHeight="48.0" prefWidth="71.0" style="-fx-background-color: red;" text="Sair" textFill="WHITE" />
       <Button fx:id="botaoRegras" layoutX="265.0" layoutY="169.0" mnemonicParsing="false" onAction="#IrParaRegras" prefHeight="48.0" prefWidth="71.0" text="Regras" />
       <Label layoutX="204.0" layoutY="56.0" text="Watak" textFill="GOLD" textOverrun="CLIP">
          <font>

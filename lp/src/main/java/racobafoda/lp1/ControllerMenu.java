@@ -14,4 +14,8 @@ public class ControllerMenu {
     private void IrParaJogar() throws IOException {
         App.setRoot("SelecaoMapa");
     }
+    @FXML
+    private void FecharGame() throws IOException {
+        System.exit(0);
+    }
 }

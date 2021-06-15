@@ -7,7 +7,7 @@ public class Atirador extends Personagem {
     
     public Atirador(String nome) {
         super(nome);
-        this.setVida(1);
+        this.setVida(80);
         this.setDefesa(10);
         this.setRange(3);
         this.setDano(15);

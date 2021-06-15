@@ -22,7 +22,7 @@ public class App extends Application {
     public static Suporte s2 = new Suporte("Sage");
     public static Atirador a1 = new Atirador("Legolas");
     public static Atirador a2 = new Atirador("Cj");
-    public static  Guerreiro g1 = new Guerreiro("Zoro");
+    public static Guerreiro g1 = new Guerreiro("Zoro");
     public static Guerreiro g2 = new Guerreiro("Kratos");
     public static Obstaculo pedra = new Obstaculo();
     public static Personagem[] listaPer = new Personagem[10];

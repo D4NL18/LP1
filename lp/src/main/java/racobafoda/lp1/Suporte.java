@@ -13,7 +13,7 @@ public class Suporte extends PersonagemComMana{
         
     public Suporte(String nome) {
         super(nome);
-        this.setVida(1);
+        this.setVida(80);
         this.setDefesa(10);
         this.setRange(2);
         this.setMana(1);

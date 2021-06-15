@@ -7,7 +7,7 @@ public class Guerreiro extends Personagem {
 
 	public Guerreiro(String nome) {
 		super(nome);
-		this.setVida(1);
+		this.setVida(120);
 		this.setDefesa(20);
 		this.setRange(1);
 		this.setDano(20);

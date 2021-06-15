@@ -14,7 +14,7 @@ public class Mago extends PersonagemComMana{
     
     public Mago(String nome) {
         super(nome);
-        this.setVida(21);
+        this.setVida(100);
         this.setDefesa(15);
         this.setRange(2);
         this.setMana(1);

@@ -500,7 +500,7 @@ public class ControllerTelaJogar implements Initializable{
   @FXML
   private void inserePecas(int tam, Personagem[] listaPer, Player j1, Player j2, Tabuleiro tabu){
         
-      for (int i=0;i<2;i++){
+      for (int i=0;i<listaPer.length;i++){
           
         TextInputDialog pegarX = new TextInputDialog();
         pegarX.setTitle("Pegando as coordenadas de valor X na matriz");

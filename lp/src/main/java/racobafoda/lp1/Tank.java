@@ -10,7 +10,7 @@ public class Tank extends Personagem{
 	
     public Tank(String nome) {
         super(nome);
-        this.setVida(1);
+        this.setVida(150);
         this.setDefesa(25);
         this.setRange(1);
         this.setDano(10);
